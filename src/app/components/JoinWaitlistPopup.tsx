@@ -13,7 +13,7 @@ export default function JoinWaitlistPopup() {
     <>
       <button 
         onClick={togglePopup} 
-        className="bg-[#4B8B76] text-white px-8 py-3 rounded-full font-medium hover:bg-[#3A6B5C] transition-colors"
+        className="bg-[--hi-vis-yellow] text-[--foreground] px-8 py-3 rounded-full font-medium hover:bg-[--hi-vis-pink-light] transition-colors"
       >
         Join the Waitlist
       </button>
@@ -26,7 +26,7 @@ export default function JoinWaitlistPopup() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <h2 className="text-2xl font-bold text-[#4B8B76] mb-4">
+            <h2 className="text-2xl font-bold text-[#FF1493] mb-4">
               Forklift Safety & Compliance—Designed for U!
             </h2>
             <p className="text-gray-700 mb-4">
@@ -52,7 +52,7 @@ export default function JoinWaitlistPopup() {
               >
                 Cancel
               </button>
-              <button className="bg-[#4B8B76] text-white px-4 py-2 rounded hover:bg-[#3A6B5C] transition-colors">
+              <button className="bg-[#FF1493] text-white px-4 py-2 rounded hover:bg-[#39FF14] transition-colors">
                 Submit
               </button>
             </div>

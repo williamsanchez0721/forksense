@@ -36,12 +36,12 @@ export default function NavLink() {
             <motion.div variants={itemVariants}>
                 <Link 
                     href="#" 
-                    className="hover:text-yellow-400 transition-colors duration-300 transform hover:translate-x-2 text-start relative group"
+                    className="hover:text-[#FFFF00] transition-colors duration-300 transform hover:translate-x-2 text-start relative group"
                 >
                     <span className="relative">
                         HARDWARE
                         <motion.span 
-                            className="absolute -bottom-2 left-0 w-0 h-1 bg-yellow-400 group-hover:w-full transition-all duration-300"
+                            className="absolute -bottom-2 left-0 w-0 h-1 bg-[#FF1493] group-hover:w-full transition-all duration-300"
                             initial={{ width: 0 }}
                             whileHover={{ width: "100%" }}
                         />

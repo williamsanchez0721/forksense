@@ -9,13 +9,11 @@
   --foreground: #171717;
   --primary-color: #4B8B76;
   --secondary-color: #3A6B5C;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Colores Hi-Vis */
+  --hi-vis-yellow: #FFFF00;
+  --hi-vis-pink: #FF1493;
+  --hi-vis-pink-light: #FF69B4;
+  --hi-vis-green: #39FF14;
 }
 
 body {

@@ -1,7 +1,7 @@
 export default function ShoppingCart() {
   return (
-    <button className="relative p-2 bg-white rounded-full">
-      <span className="absolute -top-1 -right-1 bg-white text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
+    <button className="relative p-2 bg-[#FFFF00] rounded-full hover:bg-[#39FF14] transition-colors">
+      <span className="absolute -top-1 -right-1 bg-[#FF1493] text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
         1
       </span>
       <svg 

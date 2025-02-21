@@ -64,8 +64,8 @@ export default function Security() {
 
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-b from-[#4B8B76]/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-t from-[#4B8B76]/20 to-transparent" />
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-b from-[#FF1493]/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-t from-[#39FF14]/20 to-transparent" />
       </div>
     </section>
   )

@@ -35,7 +35,8 @@ export default function FAQs() {
 
   return (
     <section className="relative bg-[#F5F1F7] py-32">
-      <div className="container mx-auto px-6">
+      <div className="flex flex-col px-6">
+        <div className='flex flex-col items-center justify-center'>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -44,48 +45,48 @@ export default function FAQs() {
         >
           FAQ
         </motion.h2>
-
-        <div className="space-y-4 max-w-3xl">
-          {faqItems.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full text-left py-6 border-b border-gray-300 flex justify-between items-center group"
+          <div className="space-y-4 w-full max-w-2xl">
+            {faqItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <span className="text-lg font-mono tracking-tight text-[#1C1C1E]">
-                  {item.question}
-                </span>
-                <motion.span
-                  animate={{ rotate: openIndex === index ? 45 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-2xl text-[#1C1C1E] font-mono transform group-hover:text-[#4B8B76]"
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full text-left py-6 border-b border-gray-300 flex justify-between items-center group"
                 >
-                  +
-                </motion.span>
-              </button>
-              
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
+                  <span className="text-lg font-mono tracking-tight text-[#1C1C1E]">
+                    {item.question}
+                  </span>
+                  <motion.span
+                    animate={{ rotate: openIndex === index ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
+                    className="text-2xl text-[#1C1C1E] font-mono transform group-hover:text-[#4B8B76]"
                   >
-                    <p className="py-6 text-gray-600 text-lg">
-                      {item.answer}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                    +
+                  </motion.span>
+                </button>
+                
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="py-6 text-gray-600 text-lg">
+                        {item.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

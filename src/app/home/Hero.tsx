@@ -5,7 +5,7 @@ import JoinWaitlistPopup from "../components/JoinWaitlistPopup"
 
 export default function Hero() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#4B8B76] to-[#3A6B5C] relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[--secondary-color] to-[--primary-color] relative overflow-hidden">
       <div className="container mx-auto px-6 pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div 
@@ -15,7 +15,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <motion.h1 
-              className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide"
               style={{ fontFamily: 'Inter' }}
             >
               THE PLATFORM<br />
@@ -23,7 +23,7 @@ export default function Hero() {
               FORKLIFT SAFETY
             </motion.h1>
             <motion.p 
-              className="text-lg text-gray-200 tracking-wide"
+              className="text-lg text-gray-100 tracking-wide"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -37,18 +37,15 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
             >
               <JoinWaitlistPopup />
-              <button className="border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-colors">
+              <button className="bg-white text-[--foreground] px-8 py-3 rounded-full font-medium hover:bg-[--secondary-color] hover:text-white transition-colors">
                 LEARN MORE
-              </button>
-              <button className="border border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white/10 transition-colors">
-                GET STARTED (Coming Soon)
               </button>
             </motion.div>
           </motion.div>
           
           <div className="relative">
             <motion.div 
-              className="absolute w-full h-full bg-gradient-to-tr from-green-500/20 to-blue-500/20 rounded-full blur-3xl"
+              className="absolute w-full h-full bg-gradient-to-tr from-[#FFFF00]/20 to-[#39FF14]/20 rounded-full blur-3xl"
               animate={{
                 scale: [1, 1.2, 1],
                 rotate: [0, 180, 360],
@@ -79,11 +76,11 @@ export default function Hero() {
                 className="relative"
               >
                 <Image 
-                  src="/forklift.png" 
+                  src="/preview2.png" 
                   alt="ForkU Device"
-                  width={600}
-                  height={600}
-                  className="w-full max-w-md mx-auto drop-shadow-2xl"
+                  width={400}
+                  height={400}
+                  className="w-full max-w-80 mx-auto drop-shadow-2xl"
                 />
                 
                 {/* Destellos */}

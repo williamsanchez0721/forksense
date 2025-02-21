@@ -25,25 +25,25 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div>
-            <h3 className="text-sm font-mono mb-6 text-gray-400">NAVIGATE</h3>
+            <h3 className="text-sm font-mono mb-6 text-[#FFFF00]">NAVIGATE</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="/" className="hover:text-[#39FF14] transition-colors">
                   HOME
                 </Link>
               </li>
               <li>
-                <Link href="/how-it-works" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="/how-it-works" className="hover:text-[#39FF14] transition-colors">
                   HOW IT WORKS
                 </Link>
               </li>
               <li>
-                <Link href="/training" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="/training" className="hover:text-[#39FF14] transition-colors">
                   TRAINING
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="/blog" className="hover:text-[#39FF14] transition-colors">
                   BLOG
                 </Link>
               </li>
@@ -52,20 +52,20 @@ export default function Footer() {
 
           {/* Support Links */}
           <div>
-            <h3 className="text-sm font-mono mb-6 text-gray-400">SUPPORT</h3>
+            <h3 className="text-sm font-mono mb-6 text-[#FFFF00]">SUPPORT</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/support" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="/support" className="hover:text-[#39FF14] transition-colors">
                   CUSTOMER SUPPORT
                 </Link>
               </li>
               <li>
-                <Link href="/orders" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="/orders" className="hover:text-[#39FF14] transition-colors">
                   YOUR ORDERS
                 </Link>
               </li>
               <li>
-                <Link href="/releases" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="/releases" className="hover:text-[#39FF14] transition-colors">
                   RELEASE NOTES
                 </Link>
               </li>
@@ -74,30 +74,30 @@ export default function Footer() {
 
           {/* Connect Links */}
           <div>
-            <h3 className="text-sm font-mono mb-6 text-gray-400">CONNECT</h3>
+            <h3 className="text-sm font-mono mb-6 text-[#FFFF00]">CONNECT</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="https://facebook.com" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="https://facebook.com" className="hover:text-[#39FF14] transition-colors">
                   FACEBOOK
                 </Link>
               </li>
               <li>
-                <Link href="https://instagram.com" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="https://instagram.com" className="hover:text-[#39FF14] transition-colors">
                   INSTAGRAM
                 </Link>
               </li>
               <li>
-                <Link href="https://twitter.com" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="https://twitter.com" className="hover:text-[#39FF14] transition-colors">
                   X
                 </Link>
               </li>
               <li>
-                <Link href="https://youtube.com" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="https://youtube.com" className="hover:text-[#39FF14] transition-colors">
                   YOUTUBE
                 </Link>
               </li>
               <li>
-                <Link href="https://linkedin.com" className="hover:text-[#4B8B76] transition-colors">
+                <Link href="https://linkedin.com" className="hover:text-[#39FF14] transition-colors">
                   LINKEDIN
                 </Link>
               </li>
@@ -122,7 +122,7 @@ export default function Footer() {
           
           <div className="mt-6 md:mt-0 flex items-center space-x-4">
             <span className="text-gray-400">COUNTRY</span>
-            <button className="flex items-center space-x-2 hover:text-[#4B8B76] transition-colors">
+            <button className="flex items-center space-x-2 hover:text-[#39FF14] transition-colors">
               <Image
                 src="/flags/us.svg"
                 alt="US Flag"

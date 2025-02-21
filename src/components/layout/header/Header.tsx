@@ -47,7 +47,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-8">
-                    <button className="bg-white text-xs md:text-base hover:bg-gray-100 text-black px-4 md:px-8 py-2.5 rounded-full font-medium transition-colors duration-200">
+                    <button className="bg-[#FFFF00] text-black px-4 md:px-8 py-2.5 rounded-full font-medium hover:bg-[#39FF14] transition-colors duration-200">
                         BUY NOW
                     </button>
                     <ShoppingCart />

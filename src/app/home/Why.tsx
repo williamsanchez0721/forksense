@@ -74,7 +74,7 @@ export default function Why() {
               At forkU, we prioritize U—the operator. We believe in creating a safer workplace. Our platform is dedicated to promoting best practices in forklift operation, reducing workplace accidents, and ensuring that U are well-versed to return home safely every day.
             </p>
 
-            <div className="text-2xl font-bold text-[#4B8B76]">
+            <div className="text-2xl font-bold text-[#FF1493]">
               U drive safety
             </div>
 
@@ -82,7 +82,7 @@ export default function Why() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full bg-[#4B8B76] text-white font-medium hover:bg-[#3A6B5C] transition-colors"
+                className="px-8 py-3 rounded-full bg-[#FF1493] text-white font-medium hover:bg-[#39FF14] transition-colors"
               >
                 JOIN THE WAITLIST
               </motion.button>

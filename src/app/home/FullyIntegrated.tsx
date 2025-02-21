@@ -35,7 +35,7 @@ export default function FullyIntegrated() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full bg-[#4B8B76] text-white font-medium border border-[#4B8B76] hover:bg-[#3A6B5C] transition-colors"
+                className="px-8 py-3 rounded-full bg-[#FF1493] text-white font-medium hover:bg-[#39FF14] transition-colors"
               >
                 EXPLORE THE APP
               </motion.button>
@@ -70,7 +70,7 @@ export default function FullyIntegrated() {
                 }}
               >
                 <Image
-                  src="/app-preview.png"
+                  src="/preview.png"
                   alt="ForkU App Preview"
                   width={600}
                   height={800}
@@ -80,8 +80,8 @@ export default function FullyIntegrated() {
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#4B8B76] rounded-full blur-[100px] opacity-20" />
-            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500 rounded-full blur-[100px] opacity-20" />
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-[#FFFF00] rounded-full blur-[100px] opacity-20" />
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#FF1493] rounded-full blur-[100px] opacity-20" />
           </motion.div>
         </div>
       </div>
