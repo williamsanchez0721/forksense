@@ -13,7 +13,7 @@ export default function JoinWaitlistPopup() {
     <>
       <button 
         onClick={togglePopup} 
-        className="bg-[--hi-vis-yellow] text-[--foreground] px-8 py-3 rounded-full font-medium hover:bg-[--hi-vis-pink-light] transition-colors"
+        className="bg-[--secondary-color] text-white px-8 py-3 rounded-full font-medium hover:bg-[--hi-vis-yellow] hover:text-[--secondary-color] transition-colors"
       >
         Join the Waitlist
       </button>

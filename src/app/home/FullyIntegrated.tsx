@@ -25,7 +25,7 @@ export default function FullyIntegrated() {
             viewport={{ once: true }}
             className="text-white space-y-8"
           >
-            <h2 className="text-7xl font-bold leading-tight">
+            <h2 className="text-7xl font-bold leading-tight title-font">
               FULLY<br />INTEGRATED
             </h2>
             <p className="text-lg text-gray-300 leading-relaxed max-w-xl">
@@ -70,11 +70,11 @@ export default function FullyIntegrated() {
                 }}
               >
                 <Image
-                  src="/preview.png"
+                  src="/preview3.png"
                   alt="ForkU App Preview"
                   width={600}
                   height={800}
-                  className="rounded-3xl shadow-2xl"
+                  className="rounded-3xl shadow-2xl max-w-80"
                 />
               </motion.div>
             </div>

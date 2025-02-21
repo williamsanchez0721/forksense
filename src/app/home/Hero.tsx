@@ -6,7 +6,7 @@ import JoinWaitlistPopup from "../components/JoinWaitlistPopup"
 export default function Hero() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[--secondary-color] to-[--primary-color] relative overflow-hidden">
-      <div className="container mx-auto px-6 pt-32 pb-20">
+      <div className="container mx-auto px-6 lg:px-32 pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             className="text-white space-y-8"
@@ -15,8 +15,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <motion.h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide"
-              style={{ fontFamily: 'Inter' }}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-none tracking-wide title-font"
             >
               THE PLATFORM<br />
               BUILT FOR<br />
@@ -37,7 +36,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
             >
               <JoinWaitlistPopup />
-              <button className="bg-white text-[--foreground] px-8 py-3 rounded-full font-medium hover:bg-[--secondary-color] hover:text-white transition-colors">
+              <button className="bg-white text-[--foreground] px-8 py-3 rounded-full font-medium hover:bg-[--hi-vis-yellow] hover:text-[--secondary-color] transition-colors">
                 LEARN MORE
               </button>
             </motion.div>
@@ -113,16 +112,6 @@ export default function Hero() {
           </div>
         </div>
         
-        <motion.div 
-          className="flex items-center gap-6 mt-20 justify-center lg:justify-start"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
-          <Image src="/osha-logo.svg" alt="OSHA" width={100} height={32} className="h-8 w-auto" />
-          <Image src="/safety-logo.svg" alt="Safety" width={100} height={32} className="h-8 w-auto" />
-          <Image src="/compliance-logo.svg" alt="Compliance" width={100} height={32} className="h-8 w-auto" />
-        </motion.div>
       </div>
     </div>
   )

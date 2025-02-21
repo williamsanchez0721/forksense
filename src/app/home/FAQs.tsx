@@ -41,7 +41,7 @@ export default function FAQs() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-6xl font-bold mb-16 text-[#1C1C1E]"
+          className="text-6xl font-bold mb-16 text-[#1C1C1E] title-font"
         >
           FAQ
         </motion.h2>
