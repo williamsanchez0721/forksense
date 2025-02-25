@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="space-y-6">
             <Link href="/">
               <Image
-                src="/logo.svg"
+                src="/logo.png"
                 alt="ForkU Logo"
                 width={150}
                 height={50}
@@ -118,19 +118,6 @@ export default function Footer() {
               height={100}
               className="bg-white p-2 rounded-lg"
             />
-          </div>
-          
-          <div className="mt-6 md:mt-0 flex items-center space-x-4">
-            <span className="text-gray-400">COUNTRY</span>
-            <button className="flex items-center space-x-2 hover:text-[#39FF14] transition-colors">
-              <Image
-                src="/flags/us.svg"
-                alt="US Flag"
-                width={20}
-                height={15}
-              />
-              <span>US</span>
-            </button>
           </div>
         </div>
       </div>

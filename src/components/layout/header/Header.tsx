@@ -1,13 +1,21 @@
 'use client'
-import Link from 'next/link'
 import NavLink from './NavLink'
 import ShoppingCart from '@/components/ui/cart/ShoppingCart'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 120)
+        }
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     const menuVariants = {
         initial: {
@@ -32,18 +40,26 @@ export default function Header() {
     }
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-transparent md:py-6">
-            <div className="container mx-auto px-6 flex items-center justify-between relative z-[60]">
+        <header className={`fixed top-0 left-0 right-0 z-50 bg-transparent py-2 md:py-6 md:px-10`}>
+            <div className="container mx-auto px-2 md:px-6 flex items-center justify-between relative z-[60]">
                 <div className="flex items-center gap-2">
-                    <Image
-                        src="/montacarga.png"
-                        alt="Logo"
-                        width={60}
-                        height={60}
-                    />
-                    <Link href="/" className="text-white text-3xl font-bold tracking-normal hover:text-gray-200 transition-colors hidden md:block">
-                        Subseven
-                    </Link>
+                    {isScrolled ? (
+                        <Image
+                            src="/logo-white.png"
+                            alt="Logo"
+                            width={120}
+                            height={120}
+                            className='w-full max-w-10 md:max-w-14'
+                        />
+                    ) : (
+                        <Image
+                            src="/logo.png"
+                            alt="Logo"
+                            width={120}
+                            height={120}
+                            className='w-full max-w-20 md:max-w-32'
+                        />
+                    )}
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-8">

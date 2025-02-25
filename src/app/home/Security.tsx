@@ -4,11 +4,11 @@ import Image from 'next/image'
 
 export default function Security() {
   return (
-    <section className="relative bg-[#1C1C1E] py-32 overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section className="relative bg-[#1C1C1E] py-0 overflow-hidden">
+      <div className="px-0 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
           {/* Left Column - Content */}
-          <div className="text-white space-y-8 max-w-2xl">
+          <div className="text-white space-y-8 max-w-2xl pl-20 pt-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -45,19 +45,22 @@ export default function Security() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative px-0"
           >
+            {/* Conector visual */}
+            <div className="absolute -top-32 left-0 w-full h-32 bg-gradient-to-b from-[#f8f3ed00] to-[#1C1C1E]" />
+            
             <Image
-              src="/forklift-operator.jpg"
+              src="/security2.png"
               alt="Forklift Operator using ForkU app"
-              width={600}
-              height={800}
-              className="rounded-2xl object-cover h-[600px] w-full"
+              width={1920}
+              height={1080}
+              className="rounded-b-2xl object-cover object-center h-screen w-full"
               priority
             />
             
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1E] via-transparent to-transparent rounded-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1E] via-transparent to-transparent rounded-b-2xl" />
           </motion.div>
         </div>
       </div>

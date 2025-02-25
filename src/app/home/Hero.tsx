@@ -9,13 +9,13 @@ export default function Hero() {
       <div className="container mx-auto px-6 lg:px-32 pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div 
-            className="text-white space-y-8"
+            className="text-white space-y-8 w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <motion.h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-none tracking-wide title-font"
+              className="text-5xl md:text-7xl lg:text-9xl font-extrabold leading-none title-font"
             >
               THE PLATFORM<br />
               BUILT FOR<br />
@@ -75,7 +75,7 @@ export default function Hero() {
                 className="relative"
               >
                 <Image 
-                  src="/preview2.png" 
+                  src="/slider.jpg" 
                   alt="ForkU Device"
                   width={400}
                   height={400}

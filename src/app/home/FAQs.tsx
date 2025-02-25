@@ -34,17 +34,45 @@ export default function FAQs() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative bg-[#F5F1F7] py-32">
-      <div className="flex flex-col px-6">
+    <section className="relative bg-zinc-900 py-32 overflow-hidden">
+      {/* Background Abstract */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div 
+          className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-[#FF1493]/10 to-transparent rounded-full blur-[100px]"
+          animate={{
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 50,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <motion.div 
+          className="absolute -bottom-1/2 -left-1/2 w-[100%] h-[100%] bg-gradient-to-t from-[#39FF14]/10 to-transparent rounded-full blur-[100px]"
+          animate={{
+            rotate: [360, 0],
+          }}
+          transition={{
+            duration: 50,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
+        <div className="absolute inset-0 bg-[#FFFF00]/5 mix-blend-overlay" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col px-6">
         <div className='flex flex-col items-center justify-center'>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-6xl font-bold mb-16 text-[#1C1C1E] title-font"
-        >
-          FAQ
-        </motion.h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-6xl font-bold mb-16 text-white title-font"
+          >
+            FAQ
+          </motion.h2>
           <div className="space-y-4 w-full max-w-2xl">
             {faqItems.map((item, index) => (
               <motion.div
@@ -55,15 +83,15 @@ export default function FAQs() {
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full text-left py-6 border-b border-gray-300 flex justify-between items-center group"
+                  className="w-full text-left py-6 border-b border-white/20 flex justify-between items-center group"
                 >
-                  <span className="text-lg font-mono tracking-tight text-[#1C1C1E]">
+                  <span className="text-lg font-mono tracking-tight text-white">
                     {item.question}
                   </span>
                   <motion.span
                     animate={{ rotate: openIndex === index ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-2xl text-[#1C1C1E] font-mono transform group-hover:text-[#4B8B76]"
+                    className="text-2xl text-white font-mono transform group-hover:text-[#FF1493]"
                   >
                     +
                   </motion.span>
@@ -78,7 +106,7 @@ export default function FAQs() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p className="py-6 text-gray-600 text-lg">
+                      <p className="py-6 text-gray-300 text-lg">
                         {item.answer}
                       </p>
                     </motion.div>
@@ -89,6 +117,11 @@ export default function FAQs() {
           </div>
         </div>
       </div>
+
+      {/* Floating Elements */}
+      <div className="absolute top-1/4 left-10 w-3 h-3 bg-[#FF1493] rounded-full" />
+      <div className="absolute bottom-1/4 right-10 w-2 h-2 bg-[#39FF14] rounded-full" />
+      <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-[#FFFF00] rounded-full opacity-50" />
     </section>
   )
 }
