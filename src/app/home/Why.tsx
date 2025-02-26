@@ -1,8 +1,16 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import JoinWaitlistPopup from '../components/JoinWaitlistPopup'
+import { useState } from 'react'
 
 export default function Why() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true)
+  }
+
   return (
     <section className="relative bg-zinc-900 py-0 overflow-hidden min-h-screen">
       {/* Background Abstract */}
@@ -34,7 +42,7 @@ export default function Why() {
         <div className="absolute inset-0 bg-[#FFFF00]/5 mix-blend-overlay" />
       </div>
 
-      <div className="container mx-auto px-0">
+      <div className="mx-auto px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
           {/* Left Column - Image */}
           <div className="relative">
@@ -45,11 +53,11 @@ export default function Why() {
               className="relative z-10"
             >
               <Image
-                src="/security2.png"
+                src="/family.jpg"
                 alt="Forklift Operator"
-                width={800}
-                height={600}
-                className="shadow-xl object-cover h-screen"
+                width={1920}
+                height={1080}
+                className="object-cover object-center h-screen w-full"
                 priority
               />
               {/* Conector visual */}
@@ -81,9 +89,11 @@ export default function Why() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 rounded-full bg-[--hi-vis-pink] text-white font-medium transition-colors"
+                onClick={handleOpenPopup}
               >
                 JOIN THE WAITLIST
               </motion.button>
+              
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -104,6 +114,9 @@ export default function Why() {
       <div className="absolute top-1/4 left-10 w-3 h-3 bg-[#FF1493] rounded-full animate-pulse" />
       <div className="absolute bottom-1/4 right-10 w-2 h-2 bg-[#39FF14] rounded-full animate-pulse" />
       <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-[#FFFF00] rounded-full opacity-50 animate-pulse" />
+
+      {/* Popup Component */}
+      <JoinWaitlistPopup isOpen={isPopupOpen} setIsOpen={setIsPopupOpen} />
     </section>
   )
 }

@@ -1,60 +1,89 @@
 'use client'
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-export default function JoinWaitlistPopup() {
-  const [isOpen, setIsOpen] = useState(false)
+interface JoinWaitlistPopupProps {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+}
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen)
+export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPopupProps) {
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      setIsOpen(false)
+    }
   }
 
   return (
     <>
-      <button 
-        onClick={togglePopup} 
-        className="bg-[--secondary-color] text-white px-8 py-3 rounded-full font-medium hover:bg-[--hi-vis-yellow] hover:text-[--secondary-color] transition-colors"
-      >
-        Join the Waitlist
-      </button>
-
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div 
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50"
+          onClick={handleBackdropClick}
+        >
           <motion.div 
-            className="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
+            className="bg-white rounded-2xl shadow-2xl p-8 max-w-md mx-auto relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 300,
+              damping: 30 
+            }}
+            onClick={e => e.stopPropagation()}
           >
-            <h2 className="text-2xl font-bold text-[#FF1493] mb-4">
-              Forklift Safety & Compliance—Designed for U!
+            {/* Elemento decorativo abstracto */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-[--hi-vis-yellow] rounded-full opacity-20" />
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-[--secondary-color] rounded-full opacity-10" />
+            
+            <h2 className="text-3xl font-bold text-[--secondary-color] mb-6 relative">
+              Join Our Waitlist
+              <span className="block text-lg font-normal text-gray-600 mt-1">
+                Be Part of the Future
+              </span>
             </h2>
-            <p className="text-gray-700 mb-4">
-              Join the waitlist and get early access to forkU, the ultimate platform for OSHA-compliant forklift training, certification tracking, and safety resources.
-            </p>
-            <ul className="list-disc list-inside text-gray-700 mb-4">
-              <li>✅ Stay OSHA Compliant</li>
-              <li>✅ Exclusive Early Access</li>
-              <li>✅ Safety Tools Built for You</li>
-            </ul>
-            <p className="text-red-600 font-semibold mb-4">
-              Limited Spots Available! Be among the first to take control of your forklift safety journey.
-            </p>
-            <input 
-              type="email" 
-              placeholder="Enter your email below to secure your spot!" 
-              className="w-full px-4 py-2 border border-gray-300 rounded mb-4"
-            />
-            <div className="flex justify-end">
-              <button 
-                onClick={togglePopup} 
-                className="text-gray-500 hover:text-gray-700 mr-4"
-              >
-                Cancel
-              </button>
-              <button className="bg-[#FF1493] text-white px-4 py-2 rounded hover:bg-[#39FF14] transition-colors">
-                Submit
-              </button>
+
+            <div className="space-y-6 relative">
+              <p className="text-gray-700">
+                Get early access to forkU, the revolutionary platform for forklift training and safety management.
+              </p>
+
+              <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                <ul className="space-y-3 text-gray-700">
+                  <li className="flex items-center gap-2">
+                    <span className="text-[--secondary-color]">✦</span> 
+                    OSHA Compliant Training
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[--secondary-color]">✦</span> 
+                    Priority Access
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-[--secondary-color]">✦</span> 
+                    Exclusive Features
+                  </li>
+                </ul>
+              </div>
+
+              <div className="space-y-4">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email address" 
+                  className="w-full text-gray-900 px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[--secondary-color] focus:border-transparent transition-all"
+                />
+                
+                <div className="flex gap-3">
+                  <button 
+                    onClick={() => setIsOpen(false)} 
+                    className="flex-1 px-4 py-3 border text-gray-900 border-gray-200 rounded-xl hover:bg-gray-50 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                  <button className="flex-1 bg-[--secondary-color] text-white px-4 py-3 rounded-xl hover:bg-[--hi-vis-yellow] hover:text-[--secondary-color] transition-colors">
+                    Join Now
+                  </button>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

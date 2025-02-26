@@ -77,28 +77,13 @@ export default function Footer() {
             <h3 className="text-sm font-mono mb-6 text-[#FFFF00]">CONNECT</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="https://facebook.com" className="hover:text-[#39FF14] transition-colors">
-                  FACEBOOK
-                </Link>
-              </li>
-              <li>
-                <Link href="https://instagram.com" className="hover:text-[#39FF14] transition-colors">
+                <Link href="https://www.instagram.com/forku.app/" className="hover:text-[#39FF14] transition-colors">
                   INSTAGRAM
                 </Link>
               </li>
               <li>
-                <Link href="https://twitter.com" className="hover:text-[#39FF14] transition-colors">
+                <Link href="https://www.tiktok.com/@forku.app" className="hover:text-[#39FF14] transition-colors">
                   X
-                </Link>
-              </li>
-              <li>
-                <Link href="https://youtube.com" className="hover:text-[#39FF14] transition-colors">
-                  YOUTUBE
-                </Link>
-              </li>
-              <li>
-                <Link href="https://linkedin.com" className="hover:text-[#39FF14] transition-colors">
-                  LINKEDIN
                 </Link>
               </li>
             </ul>

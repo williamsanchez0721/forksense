@@ -2,8 +2,14 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import JoinWaitlistPopup from "../components/JoinWaitlistPopup"
-
+import { useState } from 'react'
 export default function Hero() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true)
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[--secondary-color] to-[--primary-color] relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-32 pt-32 pb-20">
@@ -17,9 +23,9 @@ export default function Hero() {
             <motion.h1 
               className="text-5xl md:text-7xl lg:text-9xl font-extrabold leading-none title-font"
             >
-              THE PLATFORM<br />
-              BUILT FOR<br />
-              FORKLIFT SAFETY
+              THE SAFETY <br />
+              PLATFORM BUILT FOR <br />
+              FORKLIFT 
             </motion.h1>
             <motion.p 
               className="text-lg text-gray-100 tracking-wide"
@@ -35,10 +41,22 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <JoinWaitlistPopup />
-              <button className="bg-white text-[--foreground] px-8 py-3 rounded-full font-medium hover:bg-[--hi-vis-yellow] hover:text-[--secondary-color] transition-colors">
+              <JoinWaitlistPopup isOpen={isPopupOpen} setIsOpen={setIsPopupOpen} />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[--secondary-color] text-white px-8 py-3 rounded-full font-medium hover:bg-[--hi-vis-yellow] hover:text-[--secondary-color] transition-colors"
+                onClick={handleOpenPopup}
+              >
+                JOIN THE WAITLIST
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white text-[--foreground] px-8 py-3 rounded-full font-medium hover:bg-[--hi-vis-yellow] hover:text-[--secondary-color] transition-colors"
+              >
                 LEARN MORE
-              </button>
+              </motion.button>
             </motion.div>
           </motion.div>
           
@@ -75,7 +93,7 @@ export default function Hero() {
                 className="relative"
               >
                 <Image 
-                  src="/slider.jpg" 
+                  src="/mobile2.png" 
                   alt="ForkU Device"
                   width={400}
                   height={400}

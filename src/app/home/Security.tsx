@@ -13,9 +13,9 @@ export default function Security() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-[80px] font-bold leading-none tracking-tight title-font"
+              className="text-[80px] font-bold leading-none tracking-tight title-font uppercase"
             >
-              SIMPLE IS<br />SECURE
+              Simplified Compliance <br />Tracking
             </motion.h2>
             
             <motion.p

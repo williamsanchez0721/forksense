@@ -64,7 +64,7 @@ export default function FullyIntegrated() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full text-white font-medium border border-white/30 hover:bg-white/10 transition-colors"
+                className="px-8 py-3 rounded-full text-white font-medium border border-white/30 hover:bg-[--hi-vis-green] hover:text-zinc-900 transition-colors"
               >
                 EXPLORE FEATURES
               </motion.button>
