@@ -5,7 +5,7 @@ import Footer from "@/components/layout/footer/Footer";
 import FullyIntegrated from "./home/FullyIntegrated";
 import Why from "./home/Why";
 import FAQs from "./home/FAQs"; 
-
+import Safety from "./home/Safety";
 export default function Home() {
   return (
     <>
@@ -14,6 +14,7 @@ export default function Home() {
       <FullyIntegrated />
       <Security />
       <Why />
+      <Safety />
       <FAQs />
       <Footer />
     </>
