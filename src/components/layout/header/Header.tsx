@@ -99,7 +99,7 @@ export default function Header() {
                                     <NavLink />
                                 </div>
 
-                                <motion.div 
+                                {/* <motion.div 
                                     className="absolute right-6 bottom-8"
                                     initial={{ opacity: 0, x: 20 }}
                                     animate={{ opacity: 1, x: 0 }}
@@ -118,7 +118,7 @@ export default function Header() {
                                             className="w-32 h-32 bg-white p-3 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200"
                                         />
                                     </div>
-                                </motion.div>
+                                </motion.div> */}
                             </div>
                         </div>
                     </motion.div>

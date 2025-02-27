@@ -12,7 +12,7 @@ export default function Safety() {
         <section 
         id="safety"
         className="relative min-h-screen bg-zinc-900 py-0 overflow-hidden"
-        style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/montacarga.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/driverforklift.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
             {/* Background Abstract */}
             <div className="absolute inset-0 overflow-hidden">

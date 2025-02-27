@@ -4,7 +4,15 @@ import Image from 'next/image'
 
 export default function FullyIntegrated() {
   return (
-    <section className="relative bg-[#1C1C1E] py-32 px-20 overflow-hidden">
+    <section className="relative bg-[#1C1C1E] py-32 px-20 overflow-hidden" 
+      id="fully-integrated"
+      style={{
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/montacarga.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       {/* Background Text */}
       <div className="absolute flex items-center pb-44 inset-0 opacity-10 select-none pointer-events-none">
         <div className="text-[15vw] font-bold text-white leading-none">
@@ -21,14 +29,14 @@ export default function FullyIntegrated() {
           <motion.div
             className="relative flex justify-center w-full"
           >
-            <div className="relative z-10 flex justify-center w-full">
+            <div className="relative z-10 flex justify-center w-full pb-20">
               <motion.div>
                 <Image
-                  src="/device.webp"
+                  src="/phoneforku.svg"
                   alt="ForkU App Preview"
                   width={600}
                   height={800}
-                  className="rounded-3xl w-full max-w-5xl"
+                  className="rounded-3xl w-full max-w-2xl"
                 />
               </motion.div>
             </div>

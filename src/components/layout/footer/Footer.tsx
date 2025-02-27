@@ -96,13 +96,13 @@ export default function Footer() {
             <button className="bg-white text-[#1C1C1E] px-6 py-3 rounded-lg font-mono hover:bg-gray-200 transition-colors">
               DOWNLOAD FORKU APP
             </button>
-            <Image
+            {/* <Image
               src="/qr-code.svg"
               alt="QR Code"
               width={100}
               height={100}
               className="bg-white p-2 rounded-lg"
-            />
+            /> */}
           </div>
         </div>
       </div>

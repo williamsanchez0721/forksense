@@ -1,15 +1,8 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import JoinWaitlistPopup from '../components/JoinWaitlistPopup'
-import { useState } from 'react'
 
 export default function Why() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false)
-
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true)
-  }
 
   return (
     <section className="relative bg-zinc-900 py-0 overflow-hidden min-h-screen">
@@ -80,29 +73,6 @@ export default function Why() {
               At forkU, we prioritize U—the operator. We believe in creating a safer workplace. Our platform is dedicated to promoting best practices in forklift operation, reducing workplace accidents, and ensuring that U are well-versed to return home safely every day.
             </p>
 
-            <div className="text-2xl font-bold text-[#FF1493]">
-              U drive safety
-            </div>
-
-            <div className="flex flex-wrap gap-4 pt-6">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full bg-[--hi-vis-pink] text-white font-medium transition-colors"
-                onClick={handleOpenPopup}
-              >
-                JOIN THE WAITLIST
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-full text-white font-medium border border-white/30 hover:bg-white/10 transition-colors"
-              >
-                GET STARTED (Coming Soon)
-              </motion.button>
-            </div>
-
             <p className="text-sm text-gray-400 italic">
               Explore our flexible training modules designed for your success.
             </p>
@@ -115,8 +85,6 @@ export default function Why() {
       <div className="absolute bottom-1/4 right-10 w-2 h-2 bg-[#39FF14] rounded-full animate-pulse" />
       <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-[#FFFF00] rounded-full opacity-50 animate-pulse" />
 
-      {/* Popup Component */}
-      <JoinWaitlistPopup isOpen={isPopupOpen} setIsOpen={setIsPopupOpen} />
     </section>
   )
 }
