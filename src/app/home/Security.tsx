@@ -6,7 +6,7 @@ export default function Security() {
   return (
     <section className="relative bg-[#1C1C1E] py-0 overflow-hidden">
       <div className="px-0 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 px-0 lg:px-20 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 px-0 lg:px-0 gap-0 items-center">
           {/* Left Column - Content */}
           <div className="text-white space-y-8 max-w-2xl px-6 lg:pl-20 pt-20">
             <motion.h2
@@ -45,7 +45,7 @@ export default function Security() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative px-0"
+            className="relative px-0 w-full"
           >
             {/* Conector visual */}
             <div className="absolute -top-32 left-0 w-full h-32 bg-gradient-to-b from-[#f8f3ed00] to-[#1C1C1E]" />
