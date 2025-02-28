@@ -36,7 +36,7 @@ export default function FullyIntegrated() {
                   alt="ForkU App Preview"
                   width={600}
                   height={800}
-                  className="rounded-3xl w-full max-w-2xl"
+                  className="rounded-3xl w-full max-w-md lg:max-w-lg xl:max-w-2xl"
                 />
               </motion.div>
             </div>

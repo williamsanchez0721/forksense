@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="space-y-6">
             <Link href="/">
               <Image
-                src="/logo.png"
+                src="/forkulogo.png"
                 alt="ForkU Logo"
                 width={150}
                 height={50}

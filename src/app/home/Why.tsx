@@ -62,7 +62,7 @@ export default function Why() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 px-20 pt-20"
+            className="space-y-8 px-6 md:px-20 pt-20 pb-20"
           >
             <h2 className="text-6xl font-bold text-white title-font">
               WHY FORKU?

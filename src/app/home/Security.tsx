@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Security() {
   return (
@@ -31,11 +32,11 @@ export default function Security() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
+              className='pb-20'
             >
-              <button className="group relative inline-flex items-center text-white text-lg font-medium">
+              <Link href={'/learnmore'} className="w-full hover:underline text-white text-lg font-medium">
                 LEARN MORE ABOUT COMPLIANCE
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform origin-left scale-x-0 transition-transform group-hover:scale-x-100" />
-              </button>
+              </Link>
             </motion.div>
           </div>
 
@@ -48,7 +49,7 @@ export default function Security() {
             className="relative px-0 w-full"
           >
             {/* Conector visual */}
-            <div className="absolute -top-32 left-0 w-full h-32 bg-gradient-to-b from-[#f8f3ed00] to-[#1C1C1E]" />
+            {/* <div className="absolute -top-32 left-0 w-full h-32 bg-gradient-to-b from-[#f8f3ed00] to-[#1C1C1E]" /> */}
             
             <Image
               src="/security2.png"

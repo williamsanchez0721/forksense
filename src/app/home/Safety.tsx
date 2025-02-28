@@ -42,7 +42,7 @@ export default function Safety() {
                 <div className="absolute inset-0 bg-[#FFFF00]/5 mix-blend-overlay" />
             </div>
 
-            <div className="container mx-auto px-16 pb-32 relative z-10 min-h-screen flex items-end">
+            <div className="container mx-auto px-6 md:px-16 pb-32 relative z-10 min-h-screen flex items-end">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     {/* Left Column - Content */}
                     <motion.div

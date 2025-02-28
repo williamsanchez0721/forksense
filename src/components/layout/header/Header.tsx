@@ -45,7 +45,7 @@ export default function Header() {
                 <div className="flex items-center gap-2">
                     {isScrolled ? (
                         <Image
-                            src="/logo-white.png"
+                            src="/forkulogoshort.png"
                             alt="Logo"
                             width={120}
                             height={120}
@@ -53,11 +53,11 @@ export default function Header() {
                         />
                     ) : (
                         <Image
-                            src="/logo.png"
+                            src="/forkulogo.png"
                             alt="Logo"
                             width={120}
                             height={120}
-                            className='w-full max-w-20 md:max-w-32'
+                            className='w-full max-w-20 md:max-w-20'
                         />
                     )}
                 </div>
