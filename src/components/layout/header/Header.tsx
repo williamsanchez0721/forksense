@@ -1,42 +1,53 @@
 'use client'
 import NavLink from './NavLink'
 import ShoppingCart from '@/components/ui/cart/ShoppingCart'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
 
+    const logoShort = "https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+final+U+with+fork-04.png"
+    const logoLong = "https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+Final+long-04.png"
+
+    // Precargar las imágenes
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 120)
+        const preloadImage = (src: string) => {
+            const img = new Image()
+            img.src = src
         }
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
+        preloadImage(logoShort)
+        preloadImage(logoLong)
     }, [])
+
+    const handleScroll = useCallback(() => {
+        const scrolled = window.scrollY > 120
+        if (scrolled !== isScrolled) {
+            setIsScrolled(scrolled)
+        }
+    }, [isScrolled])
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [handleScroll])
 
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 bg-transparent py-2 md:py-6 md:px-10`}>
             <div className="container mx-auto px-2 md:px-6 flex items-center justify-between relative z-[60]">
                 <div className="flex items-center gap-2">
-                    {isScrolled ? (
-                        <img
-                            src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+final+U+with+fork-04.png"
-                            alt="Logo"
-                            width={120}
-                            height={120}
-                            className='w-full max-w-10 md:max-w-14'
-                        />
-                    ) : (
-                        <img
-                            src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+Final+long-04.png"
-                            alt="Logo"
-                            width={120}
-                            height={120}
-                            className='w-full max-w-20 md:max-w-20'
-                        />
-                    )}
+                    <motion.img
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.2 }}
+                        src={isScrolled ? logoShort : logoLong}
+                        alt="Logo"
+                        width={120}
+                        height={120}
+                        className={`w-full ${isScrolled ? 'max-w-10 md:max-w-14' : 'max-w-20 md:max-w-20'}`}
+                        loading="eager"
+                    />
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-8">
