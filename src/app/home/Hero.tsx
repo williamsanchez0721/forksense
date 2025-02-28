@@ -18,20 +18,21 @@ export default function Hero() {
             className="text-white space-y-8 w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.h1 
-              className="text-5xl md:text-7xl lg:text-7xl font-extrabold leading-none title-font"
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-none title-font"
             >
               THE SAFETY <br />
-              PLATFORM BUILT FOR <br />
+              PLATFORM <br />
+              BUILT FOR <br />
               FORKLIFT 
             </motion.h1>
             <motion.p 
               className="text-lg text-gray-100 tracking-wide"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.3 }}
             >
               Ensuring OSHA Compliance Made Simple
             </motion.p>
@@ -39,7 +40,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.3 }}
             >
               <JoinWaitlistPopup isOpen={isPopupOpen} setIsOpen={setIsPopupOpen} />
               <motion.button

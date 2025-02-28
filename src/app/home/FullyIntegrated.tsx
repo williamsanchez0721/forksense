@@ -49,7 +49,7 @@ export default function FullyIntegrated() {
         <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             className="text-white flex flex-wrap items-center justify-between"
           >
