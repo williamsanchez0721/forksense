@@ -2,7 +2,6 @@
 import NavLink from './NavLink'
 import ShoppingCart from '@/components/ui/cart/ShoppingCart'
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
@@ -22,24 +21,20 @@ export default function Header() {
             <div className="container mx-auto px-2 md:px-6 flex items-center justify-between relative z-[60]">
                 <div className="flex items-center gap-2">
                     {isScrolled ? (
-                        <Image
+                        <img
                             src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+final+U+with+fork-04.png"
                             alt="Logo"
                             width={120}
                             height={120}
                             className='w-full max-w-10 md:max-w-14'
-                            priority
-                            unoptimized={false}
                         />
                     ) : (
-                        <Image
+                        <img
                             src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+Final+long-04.png"
                             alt="Logo"
                             width={120}
                             height={120}
                             className='w-full max-w-20 md:max-w-20'
-                            priority
-                            unoptimized={false}
                         />
                     )}
                 </div>
