@@ -37,28 +37,9 @@ export default function FAQs() {
     <section className="relative bg-zinc-900 py-32 overflow-hidden">
       {/* Background Abstract */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div 
-          className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-[#FF1493]/10 to-transparent rounded-full blur-[100px]"
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 50,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-        <motion.div 
-          className="absolute -bottom-1/2 -left-1/2 w-[100%] h-[100%] bg-gradient-to-t from-[#39FF14]/10 to-transparent rounded-full blur-[100px]"
-          animate={{
-            rotate: [360, 0],
-          }}
-          transition={{
-            duration: 50,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
+        <div className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-[#FF1493]/10 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute -bottom-1/2 -left-1/2 w-[100%] h-[100%] bg-gradient-to-t from-[#39FF14]/10 to-transparent rounded-full blur-[100px]" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-zinc-950/80 via-zinc-900/50 to-transparent" />
         <div className="absolute inset-0 bg-[#FFFF00]/5 mix-blend-overlay" />
       </div>
 
@@ -119,9 +100,9 @@ export default function FAQs() {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-1/4 left-10 w-3 h-3 bg-[#FF1493] rounded-full" />
-      <div className="absolute bottom-1/4 right-10 w-2 h-2 bg-[#39FF14] rounded-full" />
-      <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-[#FFFF00] rounded-full opacity-50" />
+      <div className="absolute top-1/4 left-10 w-3 h-3 bg-[#FF1493] rounded-full animate-pulse" />
+      <div className="absolute bottom-1/4 right-10 w-2 h-2 bg-[#39FF14] rounded-full animate-pulse" />
+      <div className="absolute top-1/2 right-1/4 w-4 h-4 bg-[#FFFF00] rounded-full opacity-50 animate-pulse" />
     </section>
   )
 }

@@ -17,28 +17,6 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    const menuVariants = {
-        initial: {
-            opacity: 0,
-            y: -20
-        },
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.3,
-                ease: "easeOut"
-            }
-        },
-        exit: {
-            opacity: 0,
-            y: -20,
-            transition: {
-                duration: 0.2
-            }
-        }
-    }
-
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 bg-transparent py-2 md:py-6 md:px-10`}>
             <div className="container mx-auto px-2 md:px-6 flex items-center justify-between relative z-[60]">
@@ -63,12 +41,12 @@ export default function Header() {
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-8">
-                    <button className="bg-[#FFFF00] text-black px-4 md:px-8 py-2.5 rounded-full font-medium hover:bg-[#39FF14] transition-colors duration-200">
+                    <button className="bg-[#FFFF00] text-zinc-900 px-4 md:px-8 py-2.5 rounded-full font-medium hover:bg-[#39FF14] transition-colors duration-200 transform hover:scale-105 active:scale-95">
                         BUY NOW
                     </button>
                     <ShoppingCart />
                     <button
-                        className={`bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors duration-200`}
+                        className="bg-white text-zinc-900 p-2 rounded-full hover:bg-[#FF1493] hover:text-white transition-colors duration-200 transform hover:scale-105 active:scale-95"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? (
@@ -87,13 +65,19 @@ export default function Header() {
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div 
-                        className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50"
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        variants={menuVariants}
+                        className="fixed inset-0 bg-zinc-900/95 backdrop-blur-sm z-50"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                     >
-                        <div className="container mx-auto px-6 py-24 h-screen">
+                        {/* Background Abstract */}
+                        <div className="absolute inset-0 overflow-hidden">
+                            <div className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-[#FF1493]/20 to-transparent rounded-full blur-[100px]" />
+                            <div className="absolute -bottom-1/2 -left-1/2 w-[100%] h-[100%] bg-gradient-to-t from-[#39FF14]/10 to-transparent rounded-full blur-[100px]" />
+                            <div className="absolute inset-0 bg-[#FFFF00]/5 mix-blend-overlay" />
+                        </div>
+
+                        <div className="container mx-auto px-6 py-24 h-screen relative z-10">
                             <div className="flex flex-col h-full">
                                 <div className="flex-1 flex justify-center items-center">
                                     <NavLink />

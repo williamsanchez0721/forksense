@@ -9,7 +9,7 @@ export default function Security() {
       <div className="px-0 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 px-0 lg:px-0 gap-0 items-center">
           {/* Left Column - Content */}
-          <div className="text-white space-y-8 max-w-2xl px-6 lg:pl-20 pt-20">
+          <div className="text-white space-y-8 max-w-2xl px-6 lg:pl-20 pt-20 order-2 lg:order-1">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -46,22 +46,21 @@ export default function Security() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative px-0 w-full"
+            className="relative px-0 w-full order-1 lg:order-2"
           >
-            {/* Conector visual */}
-            {/* <div className="absolute -top-32 left-0 w-full h-32 bg-gradient-to-b from-[#f8f3ed00] to-[#1C1C1E]" /> */}
-            
-            <Image
-              src="/security2.png"
-              alt="Forklift Operator using ForkU app"
-              width={1920}
-              height={1080}
-              className="rounded-b-2xl object-cover object-center h-[500px] lg:h-screen w-full"
-              priority
-            />
-            
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1E] via-transparent to-transparent rounded-b-2xl" />
+            <div className="relative">
+              <Image
+                src="/security2.png"
+                alt="Forklift Operator using ForkU app"
+                width={1920}
+                height={1080}
+                className="rounded-b-2xl object-cover object-center h-[500px] lg:h-screen w-full"
+                priority
+              />
+              {/* Gradient Overlay */}
+              
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0d1706] via-[#1d281d]/60 to-transparent rounded-b-2xl" />
+            </div>
           </motion.div>
         </div>
       </div>
