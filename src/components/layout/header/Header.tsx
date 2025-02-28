@@ -23,7 +23,7 @@ export default function Header() {
                 <div className="flex items-center gap-2">
                     {isScrolled ? (
                         <Image
-                            src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+Final+long-04.png"
+                            src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+final+U+with+fork-04.png"
                             alt="Logo"
                             width={120}
                             height={120}
@@ -33,7 +33,7 @@ export default function Header() {
                         />
                     ) : (
                         <Image
-                            src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+final+U+with+fork-04.png"
+                            src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+Final+long-04.png"
                             alt="Logo"
                             width={120}
                             height={120}
