@@ -50,11 +50,10 @@ export default function Why() {
                 alt="Forklift Operator"
                 width={1920}
                 height={1080}
-                className="object-cover object-center h-screen w-full"
+                className="object-cover object-center h-[500px] lg:h-screen w-full"
                 priority
               />
-              {/* Conector visual */}
-              <div className="absolute -bottom-32 left-0 w-full h-32 bg-gradient-to-b from-zinc-900 to-[#1C1C1E]" />
+             
             </motion.div>
           </div>
 

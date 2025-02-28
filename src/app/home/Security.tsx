@@ -6,14 +6,14 @@ export default function Security() {
   return (
     <section className="relative bg-[#1C1C1E] py-0 overflow-hidden">
       <div className="px-0 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 px-0 lg:px-20 gap-20 items-center">
           {/* Left Column - Content */}
-          <div className="text-white space-y-8 max-w-2xl pl-20 pt-20">
+          <div className="text-white space-y-8 max-w-2xl px-6 lg:pl-20 pt-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-[80px] font-bold leading-none tracking-tight title-font uppercase"
+              className="text-6xl lg:text-[80px] font-bold leading-none tracking-tight title-font uppercase"
             >
               Simplified Compliance <br />Tracking
             </motion.h2>
@@ -55,7 +55,7 @@ export default function Security() {
               alt="Forklift Operator using ForkU app"
               width={1920}
               height={1080}
-              className="rounded-b-2xl object-cover object-center h-screen w-full"
+              className="rounded-b-2xl object-cover object-center h-[500px] lg:h-screen w-full"
               priority
             />
             

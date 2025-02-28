@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export default function FullyIntegrated() {
   return (
-    <section className="relative bg-[#1C1C1E] py-32 px-20 overflow-hidden" 
+    <section className="relative bg-[#1C1C1E] py-32 px-0 lg:px-20 overflow-hidden" 
       id="fully-integrated"
       style={{
         backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/montacarga.jpg')",
@@ -14,11 +14,11 @@ export default function FullyIntegrated() {
       }}
     >
       {/* Background Text */}
-      <div className="absolute flex items-center pb-44 inset-0 opacity-10 select-none pointer-events-none">
-        <div className="text-[15vw] font-bold text-white leading-none">
-          FULLY
+      <div className="absolute flex items-center pl-20 lg:pl-52 pb-44 inset-0 opacity-10 select-none pointer-events-none">
+        <div className="text-7xl lg:text-[15vw] font-bold text-white leading-none uppercase">
+          Forklift
           <br />
-          INTEGRATED
+          Safety
         </div>
       </div>
 
@@ -51,11 +51,11 @@ export default function FullyIntegrated() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-white flex items-center justify-between"
+            className="text-white flex flex-wrap items-center justify-between"
           >
             <div className='flex flex-col gap-4'>
-              <h2 className="text-7xl font-extrabold leading-tight title-font">
-                FULLY INTEGRATED
+              <h2 className="text-5xl lg:text-7xl max-w-2xl font-extrabold leading-tight title-font">
+                Master Forklift Safety with Confidence
               </h2>
               <p className="text-lg text-gray-300 leading-relaxed max-w-xl">
                 ForkU&apos;s app and resources are developed and designed with U in mind. Our comprehensive platform simplifies the complexities of OSHA regulations. Access comprehensive training materials, track your certification progress, and stay updated with the latest safety protocols.

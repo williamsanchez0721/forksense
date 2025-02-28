@@ -12,7 +12,7 @@ export default function Hero() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[--secondary-color] to-[--primary-color] relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-32 pt-32 pb-20">
+      <div className="mx-auto px-6 lg:px-24 xl:px-32 pt-32 pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             className="text-white space-y-8 w-full"
@@ -21,7 +21,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <motion.h1 
-              className="text-5xl md:text-7xl lg:text-9xl font-extrabold leading-none title-font"
+              className="text-5xl md:text-7xl lg:text-7xl font-extrabold leading-none title-font"
             >
               THE SAFETY <br />
               PLATFORM BUILT FOR <br />
@@ -97,7 +97,7 @@ export default function Hero() {
                   alt="ForkU Device"
                   width={400}
                   height={400}
-                  className="w-full max-w-80 mx-auto drop-shadow-2xl"
+                  className="w-full max-w-60 lg:max-w-80 mx-auto drop-shadow-2xl"
                 />
                 
                 {/* Destellos */}
