@@ -28,6 +28,8 @@ export default function Header() {
                             width={120}
                             height={120}
                             className='w-full max-w-10 md:max-w-14'
+                            priority
+                            unoptimized={false}
                         />
                     ) : (
                         <Image
@@ -36,6 +38,8 @@ export default function Header() {
                             width={120}
                             height={120}
                             className='w-full max-w-20 md:max-w-20'
+                            priority
+                            unoptimized={false}
                         />
                     )}
                 </div>
