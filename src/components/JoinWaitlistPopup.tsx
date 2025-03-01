@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
-import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses"
+import { useState, useRef } from 'react'
+import { sendWaitlistEmail } from '@/app/actions/email'
 
 interface JoinWaitlistPopupProps {
   isOpen: boolean;
@@ -12,6 +12,8 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState<string>('')
+  const formRef = useRef<HTMLFormElement>(null)
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -24,38 +26,23 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
 
     setIsLoading(true)
     setStatus('idle')
+    setErrorMessage('')
 
     try {
-      const client = new SESClient({
-        region: "us-east-1",
-        credentials: {
-          accessKeyId: process.env.MAIL_USERNAME!,
-          secretAccessKey: process.env.MAIL_PASSWORD!
-        }
-      })
-
-      const command = new SendEmailCommand({
-        Destination: {
-          ToAddresses: ['xebas610@gmail.com']
-        },
-        Message: {
-          Body: {
-            Text: {
-              Data: `Nuevo registro en la lista de espera: ${email}`
-            }
-          },
-          Subject: {
-            Data: 'Nuevo registro en ForkU Waitlist'
-          }
-        },
-        Source: 'xebas610@gmail.com'
-      })
-
-      await client.send(command)
-      setStatus('success')
-      setTimeout(() => setIsOpen(false), 2000)
+      // Llamar al server action para enviar el email
+      const result = await sendWaitlistEmail({ email });
+      
+      if (result.success) {
+        setStatus('success')
+        setTimeout(() => setIsOpen(false), 2000)
+      } else {
+        console.error('Error:', result.error)
+        setErrorMessage(result.error || 'Unknown error. Please try again.')
+        setStatus('error')
+      }
     } catch (error) {
       console.error('Error sending email:', error)
+      setErrorMessage('Connection error. Please try again.')
       setStatus('error')
     } finally {
       setIsLoading(false)
@@ -96,7 +83,7 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
             </span>
           </h2>
 
-          <div className="space-y-6">
+          <form ref={formRef} className="space-y-6">
             <p className="text-gray-300">
               Get early access to ForkU, the revolutionary platform for forklift training and safety management.
             </p>
@@ -121,14 +108,17 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
             <div className="space-y-4">
               <input 
                 type="email" 
+                name="user_email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address" 
                 className="w-full bg-zinc-800/50 text-white px-4 py-3 border border-[#FF1493]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF1493] focus:border-transparent transition-all placeholder:text-gray-500"
+                required
               />
               
               <div className="flex gap-3">
                 <motion.button 
+                  type="button"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsOpen(false)} 
@@ -138,6 +128,7 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
                   Cancel
                 </motion.button>
                 <motion.button 
+                  type="button"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleSubmit}
@@ -152,10 +143,12 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
                 <p className="text-[#39FF14] text-center">¡Successfully joined the waitlist!</p>
               )}
               {status === 'error' && (
-                <p className="text-red-500 text-center">There was an error. Please try again.</p>
+                <p className="text-red-500 text-center">
+                  {errorMessage || 'There was an error. Please try again.'}
+                </p>
               )}
             </div>
-          </div>
+          </form>
         </div>
       </motion.div>
     </div>

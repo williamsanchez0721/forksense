@@ -22,7 +22,7 @@ export default function Header() {
     }, [])
 
     const handleScroll = useCallback(() => {
-        const scrolled = window.scrollY > 120
+        const scrolled = window.scrollY > 1
         if (scrolled !== isScrolled) {
             setIsScrolled(scrolled)
         }
