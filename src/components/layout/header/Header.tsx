@@ -3,11 +3,12 @@ import NavLink from './NavLink'
 import ShoppingCart from '@/components/ui/cart/ShoppingCart'
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
-
+    const router = useRouter()
     const logoShort = "https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+final+U+with+fork-04.png"
     const logoLong = "https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+Final+long-04.png"
 
@@ -47,6 +48,7 @@ export default function Header() {
                         height={120}
                         className={`w-full ${isScrolled ? 'max-w-10 md:max-w-14' : 'max-w-20 md:max-w-20'}`}
                         loading="eager"
+                        onClick={() => router.push('/')}
                     />
                 </div>
 

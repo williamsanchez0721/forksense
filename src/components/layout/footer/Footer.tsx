@@ -27,7 +27,7 @@ export default function Footer() {
           >
             <Link href="/">
               <Image
-                src="/forkulogo.png"
+                src="https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+Final+long-04.png"
                 alt="ForkU Logo"
                 width={150}
                 height={50}
@@ -143,7 +143,7 @@ export default function Footer() {
             <p className="flex items-center gap-2">
               Designed & Developed by{" "}
               <Link 
-                href="https://github.com/williamcastrov" 
+                href="https://github.com/williamsanchez0721" 
                 target="_blank" 
                 className="text-[#FF1493] hover:text-[#39FF14] transition-colors"
               >

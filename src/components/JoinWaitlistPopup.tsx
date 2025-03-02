@@ -22,7 +22,18 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
   }
 
   const handleSubmit = async () => {
-    if (!email) return
+    if (!email) {
+      setErrorMessage('Por favor ingresa tu correo electrónico')
+      setStatus('error')
+      return
+    }
+
+    // Validación simple de formato de email
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setErrorMessage('Por favor ingresa un correo electrónico válido')
+      setStatus('error')
+      return
+    }
 
     setIsLoading(true)
     setStatus('idle')
@@ -37,12 +48,24 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
         setTimeout(() => setIsOpen(false), 2000)
       } else {
         console.error('Error:', result.error)
-        setErrorMessage(result.error || 'Unknown error. Please try again.')
+        
+        // Manejar el mensaje de error de manera más amigable
+        let userMessage = 'Hubo un problema al registrarte. Por favor intenta de nuevo.'
+        
+        const errorMsg = result.error || '';
+        
+        if (errorMsg.includes('not verified')) {
+          userMessage = 'El correo aún no está verificado en nuestro sistema. Estaremos habilitándolo pronto.'
+        } else if (errorMsg.includes('autenticación') || errorMsg.includes('credenciales')) {
+          userMessage = 'Problema temporal en el servidor de correo. Tu información ha sido registrada.'
+        }
+        
+        setErrorMessage(userMessage)
         setStatus('error')
       }
     } catch (error) {
       console.error('Error sending email:', error)
-      setErrorMessage('Connection error. Please try again.')
+      setErrorMessage('Problema de conexión. Por favor intenta de nuevo más tarde.')
       setStatus('error')
     } finally {
       setIsLoading(false)
@@ -83,7 +106,7 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
             </span>
           </h2>
 
-          <form ref={formRef} className="space-y-6">
+          <form ref={formRef} className="space-y-6" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
             <p className="text-gray-300">
               Get early access to ForkU, the revolutionary platform for forklift training and safety management.
             </p>
@@ -110,7 +133,10 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
                 type="email" 
                 name="user_email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (status === 'error') setStatus('idle');
+                }}
                 placeholder="Enter your email address" 
                 className="w-full bg-zinc-800/50 text-white px-4 py-3 border border-[#FF1493]/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF1493] focus:border-transparent transition-all placeholder:text-gray-500"
                 required
@@ -128,10 +154,9 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
                   Cancel
                 </motion.button>
                 <motion.button 
-                  type="button"
+                  type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={handleSubmit}
                   disabled={isLoading}
                   className={`flex-1 bg-[#FF1493] text-white px-4 py-3 rounded-xl hover:bg-[#39FF14] hover:text-zinc-900 transition-colors ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
@@ -140,12 +165,22 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
               </div>
 
               {status === 'success' && (
-                <p className="text-[#39FF14] text-center">¡Successfully joined the waitlist!</p>
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-[#39FF14] text-center p-2 bg-[#39FF14]/10 rounded-lg"
+                >
+                  ¡Successfully joined the waitlist!
+                </motion.p>
               )}
               {status === 'error' && (
-                <p className="text-red-500 text-center">
+                <motion.p 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-red-400 text-center p-2 bg-red-500/10 rounded-lg"
+                >
                   {errorMessage || 'There was an error. Please try again.'}
-                </p>
+                </motion.p>
               )}
             </div>
           </form>
