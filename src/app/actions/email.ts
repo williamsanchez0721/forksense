@@ -1,20 +1,36 @@
 'use server';
 import nodemailer from 'nodemailer';
 
-// Valores de configuración desde variables de entorno con valores por defecto
-const MAIL_HOST = process.env.MAIL_HOST || 'email-smtp.us-east-1.amazonaws.com';
-const MAIL_PORT = parseInt(process.env.MAIL_PORT || '465');
-const MAIL_USERNAME = process.env.MAIL_USERNAME || '';
-const MAIL_PASSWORD = process.env.MAIL_PASSWORD || '';
-const SENDER_EMAIL = process.env.SENDER_EMAIL || 'diego.cotrian@gmail.com';
-const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'diego.cotrian@gmail.com';
+// Función para obtener variables de entorno con logs detallados
+function getEnvVar(name: string, defaultValue: string): string {
+  const value = process.env[name];
+  if (!value) {
+    console.log(`[ENV] ${name} no está definido, usando valor por defecto.`);
+    return defaultValue;
+  }
+  console.log(`[ENV] ${name} está definido`);
+  return value;
+}
+
+// Variables de entorno con logging mejorado
+const MAIL_HOST = getEnvVar('MAIL_HOST', 'email-smtp.us-east-1.amazonaws.com');
+const MAIL_PORT = parseInt(getEnvVar('MAIL_PORT', '465'));
+const MAIL_USERNAME = getEnvVar('MAIL_USERNAME', '');
+const MAIL_PASSWORD = getEnvVar('MAIL_PASSWORD', '');
+const SENDER_EMAIL = getEnvVar('SENDER_EMAIL', 'diego.cotrian@gmail.com');
+const RECIPIENT_EMAIL = getEnvVar('RECIPIENT_EMAIL', 'diego.cotrian@gmail.com');
+const NODE_ENV = getEnvVar('NODE_ENV', 'production');
 
 // Server Action para enviar email con Nodemailer usando Amazon SES
 export async function sendWaitlistEmail(formData: { email: string }) {
+  console.log('[EMAIL] Iniciando proceso de envío de email');
+
   try {
     const { email } = formData;
+    console.log(`[EMAIL] Email del usuario: ${email}`);
 
     if (!email) {
+      console.log('[EMAIL] Error: Email no proporcionado');
       return { 
         success: false, 
         error: 'Email is required' 
@@ -23,12 +39,19 @@ export async function sendWaitlistEmail(formData: { email: string }) {
 
     // Verificar credenciales
     if (!MAIL_USERNAME || !MAIL_PASSWORD) {
-      console.error('Email credentials not found in environment variables');
-      return { 
-        success: false, 
-        error: 'Server configuration error: missing credentials' 
-      };
+      console.error('[EMAIL] Error: Credenciales no encontradas en variables de entorno');
+      // En producción, tratamos de continuar de todos modos
+      if (NODE_ENV === 'production') {
+        console.log('[EMAIL] En producción: intentando enviar aunque falten credenciales');
+      } else {
+        return { 
+          success: false, 
+          error: 'Server configuration error: missing credentials' 
+        };
+      }
     }
+    
+    console.log(`[EMAIL] Configurando transporter con host: ${MAIL_HOST}, puerto: ${MAIL_PORT}`);
     
     // Configurar transporter para Amazon SES
     const transporter = nodemailer.createTransport({
@@ -39,9 +62,23 @@ export async function sendWaitlistEmail(formData: { email: string }) {
         user: MAIL_USERNAME,
         pass: MAIL_PASSWORD,
       },
-      debug: process.env.NODE_ENV !== 'production',
+      debug: true, // Siempre activar debug para diagnóstico
+      logger: true  // Activar logger de nodemailer
     });
-    
+
+    // Verificar la conexión antes de enviar
+    try {
+      console.log('[EMAIL] Verificando conexión con servidor SMTP...');
+      await transporter.verify();
+      console.log('[EMAIL] Conexión SMTP verificada exitosamente');
+    } catch (verifyError) {
+      console.error('[EMAIL] Error verificando conexión SMTP:', verifyError);
+      // En producción, intentamos enviar de todos modos
+      if (NODE_ENV !== 'production') {
+        throw verifyError;
+      }
+    }
+
     const message = `New registration in ForkU Waitlist: ${email}`;
     
     // Enviar email directamente
@@ -60,9 +97,11 @@ export async function sendWaitlistEmail(formData: { email: string }) {
       </div>`,
     };
 
-    console.log('Intentando enviar email a través de SES...');
+    console.log('[EMAIL] Intentando enviar email a través de SES...');
+    console.log(`[EMAIL] Detalles: De: ${SENDER_EMAIL}, Para: ${RECIPIENT_EMAIL}`);
+    
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email enviado con éxito:', info.messageId);
+    console.log('[EMAIL] Email enviado con éxito:', info.messageId);
 
     return { 
       success: true,
@@ -70,7 +109,8 @@ export async function sendWaitlistEmail(formData: { email: string }) {
     };
   } catch (error: unknown) {
     const emailError = error as Error;
-    console.error('Error al enviar email:', emailError.message);
+    console.error('[EMAIL] Error al enviar email:', emailError.message);
+    console.error('[EMAIL] Stack completo:', emailError.stack);
     
     // Manejar errores específicos
     if (emailError.message && emailError.message.includes('Invalid login')) {
@@ -84,6 +124,14 @@ export async function sendWaitlistEmail(formData: { email: string }) {
       return {
         success: false,
         error: 'No se pudo conectar al servidor SMTP. Verifica la configuración del host y puerto.'
+      };
+    }
+    
+    // Manejar error de timeout
+    if (emailError.message && emailError.message.includes('timeout')) {
+      return {
+        success: false,
+        error: 'Tiempo de espera agotado al conectar con el servidor SMTP. Verifica tu red o firewall.'
       };
     }
     

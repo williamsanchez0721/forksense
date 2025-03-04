@@ -49,13 +49,7 @@ export const metadata: Metadata = {
         alt: "ForkU Logo",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "ForkU - Forklift Safety Training & OSHA Compliance",
-    description: "Revolutionary platform for forklift safety training and OSHA compliance management.",
-    images: ["/forkulogoshort.png"],
-  },
+  }
 };
 
 export default function RootLayout({
