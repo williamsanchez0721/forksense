@@ -1,16 +1,15 @@
-'use server'
-
-import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
+'use server';
 import nodemailer from 'nodemailer';
 
-// Valores de configuración desde variables de entorno
-const MAIL_USERNAME = process.env.MAIL_USERNAME || 'AKIA4UFXMUQAFDW4UF35';
-const MAIL_PASSWORD = process.env.MAIL_PASSWORD || 'BEY8CJD5U/vL2TTHjm+h+soOaUhuSCvwDPFQ7zqAwwUF';
+// Valores de configuración desde variables de entorno con valores por defecto
+const MAIL_HOST = process.env.MAIL_HOST || 'email-smtp.us-east-1.amazonaws.com';
+const MAIL_PORT = parseInt(process.env.MAIL_PORT || '465');
+const MAIL_USERNAME = process.env.MAIL_USERNAME || '';
+const MAIL_PASSWORD = process.env.MAIL_PASSWORD || '';
 const SENDER_EMAIL = process.env.SENDER_EMAIL || 'diego.cotrian@gmail.com';
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'diego.cotrian@gmail.com';
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
-// Server Action para enviar email con AWS SES
+// Server Action para enviar email con Nodemailer usando Amazon SES
 export async function sendWaitlistEmail(formData: { email: string }) {
   try {
     const { email } = formData;
@@ -24,119 +23,73 @@ export async function sendWaitlistEmail(formData: { email: string }) {
 
     // Verificar credenciales
     if (!MAIL_USERNAME || !MAIL_PASSWORD) {
-      console.error('AWS credentials not found in environment variables');
+      console.error('Email credentials not found in environment variables');
       return { 
         success: false, 
         error: 'Server configuration error: missing credentials' 
       };
     }
-
-    // En producción, usar directamente Nodemailer que sabemos que funciona
-    if (IS_PRODUCTION) {
-      return await sendEmailWithNodemailer(email);
-    }
     
-    // En desarrollo, intentar primero con SES y luego con Nodemailer como fallback
-    console.log('Configurando SES para envío de email...');
-
-    try {
-      // Configuración de AWS SES
-      const client = new SESClient({
-        region: "us-east-1",
-        credentials: {
-          accessKeyId: MAIL_USERNAME.trim(),
-          secretAccessKey: MAIL_PASSWORD.trim()
-        }
-      });
-
-      // Configuración del email
-      const params = {
-        Source: SENDER_EMAIL,
-        Destination: {
-          ToAddresses: [RECIPIENT_EMAIL]
-        },
-        Message: {
-          Subject: {
-            Charset: 'UTF-8',
-            Data: 'New registration in ForkU Waitlist'
-          },
-          Body: {
-            Text: {
-              Data: `New registration in ForkU Waitlist: ${email}`
-            }
-          }
-        }
-      };
-
-      const command = new SendEmailCommand(params);
-      
-      const response = await client.send(command);
-      console.log('Email enviado con éxito (SES):', response);
-      
-      return { 
-        success: true,
-        message: 'Email sent successfully via SES'
-      };
-    } catch (sesError: unknown) {
-      const error = sesError as Error & { Code?: string; Type?: string };
-      console.error('Error específico de SES:', error.message);
-      
-      // Si hay error con SES, usar Nodemailer como fallback
-      console.log('Intentando con Nodemailer como alternativa...');
-      return await sendEmailWithNodemailer(email);
-    }
-  } catch (generalError: unknown) {
-    const error = generalError instanceof Error ? generalError : new Error(String(generalError));
-    console.error('Error general:', error.message);
-    return { 
-      success: false, 
-      error: 'Error del servidor: ' + error.message
-    };
-  }
-}
-
-// Función separada para enviar emails con Nodemailer
-async function sendEmailWithNodemailer(userEmail: string) {
-  try {
-    // Configurar nodemailer con AWS SES
+    // Configurar transporter para Amazon SES
     const transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST || 'email-smtp.us-east-1.amazonaws.com',
-      port: parseInt(process.env.MAIL_PORT || '465'),
-      secure: true, // true para puerto 465
+      host: MAIL_HOST,
+      port: MAIL_PORT,
+      secure: true, // true para puerto 465, false para otros puertos
       auth: {
         user: MAIL_USERNAME,
-        pass: MAIL_PASSWORD
-      }
+        pass: MAIL_PASSWORD,
+      },
+      debug: process.env.NODE_ENV !== 'production',
     });
-
-    // Enviar email con Nodemailer
-    const info = await transporter.sendMail({
+    
+    const message = `New registration in ForkU Waitlist: ${email}`;
+    
+    // Enviar email directamente
+    const mailOptions = {
       from: SENDER_EMAIL,
       to: RECIPIENT_EMAIL,
-      subject: 'Nuevo registro en ForkU Waitlist',
-      text: `Nuevo registro en la lista de espera: ${userEmail}`,
-      replyTo: userEmail
-    });
+      subject: 'New registration in ForkU Waitlist',
+      text: message,
+      html: `<div style="font-family: Arial, sans-serif; color: #333;">
+        <h2 style="color: #FF1493;">¡Nueva inscripción en la lista de espera!</h2>
+        <p>Se ha registrado un nuevo correo electrónico:</p>
+        <p style="background-color: #f8f8f8; padding: 10px; border-left: 4px solid #39FF14;"><strong>${email}</strong></p>
+        <p>Fecha y hora: ${new Date().toLocaleString()}</p>
+        <hr style="border: 1px solid #eee;">
+        <p style="font-size: 12px; color: #666;">Este es un mensaje automático del sistema ForkU.</p>
+      </div>`,
+    };
 
-    console.log('Email enviado con éxito (Nodemailer):', info.messageId);
+    console.log('Intentando enviar email a través de SES...');
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email enviado con éxito:', info.messageId);
+
     return { 
       success: true,
-      message: 'Email sent successfully via Nodemailer'
+      message: 'Email sent successfully'
     };
   } catch (error: unknown) {
-    const mailError = error as Error;
-    console.error('Error con Nodemailer:', mailError.message);
+    const emailError = error as Error;
+    console.error('Error al enviar email:', emailError.message);
     
-    if (mailError.message && mailError.message.includes('not verified')) {
+    // Manejar errores específicos
+    if (emailError.message && emailError.message.includes('Invalid login')) {
       return {
         success: false,
-        error: 'El email no está verificado en AWS SES. Por favor verifica las direcciones de correo en la consola de AWS SES.'
+        error: 'Error de autenticación con AWS SES. Por favor verifica las credenciales.'
       };
     }
     
-    return {
-      success: false,
-      error: 'Error al enviar el email: ' + mailError.message
+    if (emailError.message && emailError.message.includes('Greeting never received')) {
+      return {
+        success: false,
+        error: 'No se pudo conectar al servidor SMTP. Verifica la configuración del host y puerto.'
+      };
+    }
+    
+    return { 
+      success: false, 
+      error: 'Error al enviar el email: ' + emailError.message
     };
   }
 } 
