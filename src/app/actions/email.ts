@@ -4,8 +4,8 @@ import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 import nodemailer from 'nodemailer';
 
 // Valores de configuración desde variables de entorno
-const MAIL_USERNAME = process.env.MAIL_USERNAME || '';
-const MAIL_PASSWORD = process.env.MAIL_PASSWORD || '';
+const MAIL_USERNAME = process.env.MAIL_USERNAME || 'AKIA4UFXMUQAFDW4UF35';
+const MAIL_PASSWORD = process.env.MAIL_PASSWORD || 'BEY8CJD5U/vL2TTHjm+h+soOaUhuSCvwDPFQ7zqAwwUF';
 const SENDER_EMAIL = process.env.SENDER_EMAIL || 'diego.cotrian@gmail.com';
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'diego.cotrian@gmail.com';
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
@@ -57,11 +57,12 @@ export async function sendWaitlistEmail(formData: { email: string }) {
         },
         Message: {
           Subject: {
-            Data: 'Nuevo registro en ForkU Waitlist'
+            Charset: 'UTF-8',
+            Data: 'New registration in ForkU Waitlist'
           },
           Body: {
             Text: {
-              Data: `Nuevo registro en la lista de espera: ${email}`
+              Data: `New registration in ForkU Waitlist: ${email}`
             }
           }
         }

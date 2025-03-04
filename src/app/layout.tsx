@@ -32,9 +32,7 @@ export const metadata: Metadata = {
   themeColor: "#18181B",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/forkulogoshort.png",
-    apple: "/forkulogoshort.png",
+    icon: "/favicon.ico"
   },
   openGraph: {
     type: "website",
