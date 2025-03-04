@@ -19,7 +19,6 @@ const MAIL_USERNAME = getEnvVar('MAIL_USERNAME', '');
 const MAIL_PASSWORD = getEnvVar('MAIL_PASSWORD', '');
 const SENDER_EMAIL = getEnvVar('SENDER_EMAIL', 'diego.cotrian@gmail.com');
 const RECIPIENT_EMAIL = getEnvVar('RECIPIENT_EMAIL', 'diego.cotrian@gmail.com');
-const NODE_ENV = getEnvVar('NODE_ENV', 'production');
 
 // Server Action para enviar email con Nodemailer usando Amazon SES
 export async function sendWaitlistEmail(formData: { email: string }) {
@@ -41,14 +40,10 @@ export async function sendWaitlistEmail(formData: { email: string }) {
     if (!MAIL_USERNAME || !MAIL_PASSWORD) {
       console.error('[EMAIL] Error: Credenciales no encontradas en variables de entorno');
       // En producción, tratamos de continuar de todos modos
-      if (NODE_ENV === 'production') {
-        console.log('[EMAIL] En producción: intentando enviar aunque falten credenciales');
-      } else {
-        return { 
-          success: false, 
-          error: 'Server configuration error: missing credentials' 
-        };
-      }
+      return {
+        success: false,
+        error: 'Credenciales no encontradas en variables de entorno'
+      };
     }
     
     console.log(`[EMAIL] Configurando transporter con host: ${MAIL_HOST}, puerto: ${MAIL_PORT}`);
@@ -73,10 +68,8 @@ export async function sendWaitlistEmail(formData: { email: string }) {
       console.log('[EMAIL] Conexión SMTP verificada exitosamente');
     } catch (verifyError) {
       console.error('[EMAIL] Error verificando conexión SMTP:', verifyError);
-      // En producción, intentamos enviar de todos modos
-      if (NODE_ENV !== 'production') {
-        throw verifyError;
-      }
+      // En producción, intentados enviar de todos modos
+      throw verifyError;
     }
 
     const message = `New registration in ForkU Waitlist: ${email}`;
