@@ -22,12 +22,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ForkU - Forklift Safety Training & OSHA Compliance Platform",
-  description: "ForkU is the revolutionary platform for forklift safety training and OSHA compliance management. Get certified, track progress, and ensure workplace safety.",
+  title: "Forksense - Forklift Safety Training & OSHA Compliance Platform",
+  description: "Forksense is the revolutionary platform for forklift safety training and OSHA compliance management. Get certified, track progress, and ensure workplace safety.",
   keywords: "forklift training, OSHA compliance, workplace safety, forklift certification, safety management",
-  authors: [{ name: "ForkU" }],
-  creator: "ForkU",
-  publisher: "ForkU",
+  authors: [{ name: "Forksense" }],
+  creator: "Forksense",
+  publisher: "Forksense",
   robots: "index, follow",
   themeColor: "#18181B",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://forku.app",
     siteName: "ForkU",
-    title: "ForkU - Forklift Safety Training & OSHA Compliance Platform",
+    title: "Forksense - Forklift Safety Training & OSHA Compliance Platform",
     description: "Revolutionary platform for forklift safety training and OSHA compliance management.",
     images: [
       {
