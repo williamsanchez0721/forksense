@@ -4,26 +4,15 @@ import ShoppingCart from '@/components/ui/cart/ShoppingCart'
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
-    const router = useRouter()
-    const logoShort = "https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+final+U+with+fork-04.png"
-    const logoLong = "https://elasticbeanstalk-us-east-1-867968001024.s3.us-east-1.amazonaws.com/logos/uploads/Fork+U+logo+Final+long-04.png"
-
-    // Precargar las imágenes
-    useEffect(() => {
-        const preloadImage = (src: string) => {
-            const img = new Image()
-            img.src = src
-        }
-        preloadImage(logoShort)
-        preloadImage(logoLong)
-    }, [])
+    const router = useRouter();
 
     const handleScroll = useCallback(() => {
-        const scrolled = window.scrollY > 1
+        const scrolled = window.scrollY > 10
         if (scrolled !== isScrolled) {
             setIsScrolled(scrolled)
         }
@@ -38,27 +27,38 @@ export default function Header() {
         <header className={`fixed top-0 left-0 right-0 z-50 bg-transparent py-2 md:py-6 md:px-10`}>
             <div className="container mx-auto px-2 md:px-6 flex items-center justify-between relative z-[60]">
                 <div className="flex items-center gap-2">
-                    <motion.img
-                        initial={{ opacity: 1 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.2 }}
-                        src={isScrolled ? logoShort : logoLong}
-                        alt="Logo"
-                        width={120}
-                        height={120}
-                        className={`w-full ${isScrolled ? 'max-w-10 md:max-w-14' : 'max-w-20 md:max-w-20'}`}
-                        loading="eager"
-                        onClick={() => router.push('/')}
-                    />
+                    {isScrolled ? (
+                        <div className="flex items-center gap-2 bg-white rounded-full p-3 w-12 h-12">
+                            <Image
+                                src={"/logos/forkulogoublack.png"}
+                                alt="Logo"
+                                width={120}
+                                height={120}
+                                className={`w-full max-w-20 md:max-w-24 cursor-pointer`}
+                                loading="eager"
+                                onClick={() => router.push('/')}
+                            />
+                        </div>
+                    ) : (
+                        <Image
+                            src={"/logos/forkulogowhite.png"}
+                            alt="Logo"
+                            width={120}
+                            height={120}
+                            className={`w-full max-w-20 md:max-w-28 cursor-pointer`}
+                            loading="eager"
+                            onClick={() => router.push('/')}
+                        />
+                    )}
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-8">
-                    <button className="bg-[#FFFF00] text-zinc-900 px-4 md:px-8 py-2.5 rounded-full font-medium hover:bg-[#39FF14] transition-colors duration-200 transform hover:scale-105 active:scale-95">
-                        BUY NOW
+                    <button className="bg-yellow-500 text-zinc-900 px-4 md:px-8 py-2.5 rounded-full font-medium hover:bg-yellow-400 transition-colors duration-200 transform hover:scale-105 active:scale-95">
+                        COMPRAR
                     </button>
                     <ShoppingCart />
                     <button
-                        className="bg-white text-zinc-900 p-2 rounded-full hover:bg-[#FF1493] hover:text-white transition-colors duration-200 transform hover:scale-105 active:scale-95"
+                        className="bg-white text-zinc-900 p-2 rounded-full hover:bg-yellow-400 transition-colors duration-200 transform hover:scale-105 active:scale-95"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? (
@@ -76,7 +76,7 @@ export default function Header() {
 
             <AnimatePresence>
                 {isMenuOpen && (
-                    <motion.div 
+                    <motion.div
                         className="fixed inset-0 bg-zinc-900/95 backdrop-blur-sm z-50"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}

@@ -6,6 +6,9 @@ import FullyIntegrated from "./home/FullyIntegrated";
 import Why from "./home/Why";
 import FAQs from "./home/FAQs"; 
 import Safety from "./home/Safety";
+import Subscription from "./home/Subscription";
+import Blog from "./home/Blog";
+// import Referral from "@/components/Referral";
 export default function Home() {
   return (
     <>
@@ -15,7 +18,10 @@ export default function Home() {
       <Security />
       <Why />
       <Safety />
+      <Subscription />
+      <Blog />
       <FAQs />
+      {/* <Referral /> */}
       <Footer />
     </>
   );

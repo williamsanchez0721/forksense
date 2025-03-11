@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -11,7 +11,16 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+    domains: [
+      'localhost',
+      'forksense.app',
+      'forksense.vercel.app'
+    ],
+  },
+  assetPrefix: process.env.NODE_ENV === 'production' ? undefined : undefined,
+  experimental: {
+    turbo: {}
   },
 };
 
-export default nextConfig;
+export default nextConfig; 
