@@ -28,9 +28,9 @@ export default function Header() {
             <div className="container mx-auto px-2 md:px-6 flex items-center justify-between relative z-[60]">
                 <div className="flex items-center gap-2">
                     {isScrolled ? (
-                        <div className="flex items-center gap-2 bg-white rounded-full p-3 w-12 h-12">
+                        <div className="flex items-center gap-2 bg-white rounded-full p-2 w-14 h-14">
                             <Image
-                                src={"/logos/forkulogoublack.png"}
+                                src={"/logos/forksense.png"}
                                 alt="Logo"
                                 width={120}
                                 height={120}
@@ -40,15 +40,17 @@ export default function Header() {
                             />
                         </div>
                     ) : (
-                        <Image
-                            src={"/logos/forkulogowhite.png"}
-                            alt="Logo"
-                            width={120}
-                            height={120}
-                            className={`w-full max-w-20 md:max-w-28 cursor-pointer`}
-                            loading="eager"
-                            onClick={() => router.push('/')}
-                        />
+                        <div className="flex items-center gap-2 bg-white rounded-full p-2 w-14 h-14">
+                            <Image
+                                src={"/logos/forksense.png"}
+                                alt="Logo"
+                                width={120}
+                                height={120}
+                                className={`w-full max-w-20 md:max-w-28 cursor-pointer`}
+                                loading="eager"
+                                onClick={() => router.push('/')}
+                            />
+                        </div>
                     )}
                 </div>
 

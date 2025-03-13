@@ -25,15 +25,17 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <Link href="/">
-              <Image
-                src="/forkulogo.png"
-                alt="ForkU Logo"
-                width={150}
-                height={50}
-                className="mb-4"
-              />
-            </Link>
+            <div className="flex justify-center items-center gap-2 bg-white rounded-full p-2 w-14 h-14">
+              <Link href="/">
+                <Image
+                  src="/logos/forksense.png"
+                  alt="ForkU Logo"
+                  width={150}
+                  height={50}
+                  className="w-full"
+                />
+              </Link>
+            </div>
             <p className="text-gray-400 text-sm">
               Líderes en capacitación de seguridad para montacargas y cumplimiento de normativas.
             </p>
