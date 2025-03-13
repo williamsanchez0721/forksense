@@ -20,7 +20,7 @@ export default function Referral() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+          <h2 className="text-3xl uppercase title-font sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             PROGRAMA DE REFERIDOS
           </h2>
           <div className="h-1 w-20 bg-yellow-500 mx-auto mb-4"></div>
