@@ -1,14 +1,15 @@
 'use client'
 import NavLink from './NavLink'
-import ShoppingCart from '@/components/ui/cart/ShoppingCart'
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import JoinForm from '@/components/JoinWaitlistPopup'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false)
+    const [isJoinFormOpen, setIsJoinFormOpen] = useState(false)
     const router = useRouter();
 
     const handleScroll = useCallback(() => {
@@ -22,6 +23,11 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll, { passive: true })
         return () => window.removeEventListener('scroll', handleScroll)
     }, [handleScroll])
+
+    // Función para cerrar el menú
+    const closeMenu = useCallback(() => {
+        setIsMenuOpen(false);
+    }, []);
 
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 bg-transparent py-2 md:py-6 md:px-10`}>
@@ -55,10 +61,12 @@ export default function Header() {
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-8">
-                    <button className="bg-yellow-500 text-zinc-900 px-4 md:px-8 py-2.5 rounded-full font-medium hover:bg-yellow-400 transition-colors duration-200 transform hover:scale-105 active:scale-95">
-                        COMPRAR
+                    <button className="bg-yellow-500 text-zinc-900 px-4 md:px-8 py-2.5 rounded-full font-medium hover:bg-yellow-400 transition-colors duration-200 transform hover:scale-105 active:scale-95"
+                        onClick={() => setIsJoinFormOpen(!isJoinFormOpen)}
+                    >
+                        Únete a la lista
                     </button>
-                    <ShoppingCart />
+                    {/* <ShoppingCart /> */}
                     <button
                         className="bg-white text-zinc-900 p-2 rounded-full hover:bg-yellow-400 transition-colors duration-200 transform hover:scale-105 active:scale-95"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -94,7 +102,7 @@ export default function Header() {
                         <div className="container mx-auto px-6 py-24 h-screen relative z-10">
                             <div className="flex flex-col h-full">
                                 <div className="flex-1 flex justify-center items-center">
-                                    <NavLink />
+                                    <NavLink onLinkClick={closeMenu} />
                                 </div>
 
                                 {/* <motion.div 
@@ -122,6 +130,7 @@ export default function Header() {
                     </motion.div>
                 )}
             </AnimatePresence>
+            {isJoinFormOpen && <JoinForm isOpen={isJoinFormOpen} setIsOpen={setIsJoinFormOpen} />}
         </header>
     )
 }

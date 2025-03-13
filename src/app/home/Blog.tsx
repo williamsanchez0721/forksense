@@ -7,6 +7,7 @@ export default function Blog() {
   const featuredArticles = [
     {
       id: 'osha-compliance',
+      slug: 'entendiendo-el-cumplimiento-osha-que-significa-para-tu-negocio',
       title: 'Entendiendo el cumplimiento OSHA: Qué significa para tu negocio',
       excerpt: 'Descubre cómo las regulaciones OSHA impactan tu operación y qué debes hacer para mantener el cumplimiento.',
       category: 'Industria y Cumplimiento',
@@ -14,6 +15,7 @@ export default function Blog() {
     },
     {
       id: 'digital-tools',
+      slug: 'como-las-herramientas-digitales-estan-transformando-la-gestion-de-flotas',
       title: 'Cómo las herramientas digitales están transformando la gestión de flotas',
       excerpt: 'Explora el impacto de la digitalización en la eficiencia y seguridad de las operaciones con montacargas.',
       category: 'Negocios y Productividad',
@@ -21,6 +23,7 @@ export default function Blog() {
     },
     {
       id: 'improve-safety',
+      slug: 'mejorar-la-seguridad-de-montacargas-en-tu-lugar-de-trabajo',
       title: 'Cómo mejorar la seguridad de montacargas en tu lugar de trabajo',
       excerpt: 'Estrategias prácticas para crear un entorno de trabajo más seguro para operadores de montacargas.',
       category: 'Industria y Cumplimiento',
@@ -29,7 +32,7 @@ export default function Blog() {
   ]
 
   return (
-    <section className="relative bg-zinc-900 py-16 sm:py-20 overflow-hidden">
+    <section id="blog" className="relative bg-zinc-900 py-16 sm:py-20 overflow-hidden">
       {/* Background Abstract */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-yellow-500/20 to-transparent rounded-full blur-[120px]" />
@@ -87,7 +90,7 @@ export default function Blog() {
                 <p className="text-gray-400 text-sm mb-4 line-clamp-2">
                   {article.excerpt}
                 </p>
-                <Link href="#" className="text-yellow-500 text-sm font-medium hover:text-yellow-400 transition-colors inline-flex items-center">
+                <Link href={`/blog/${article.slug}`} className="text-yellow-500 text-sm font-medium hover:text-yellow-400 transition-colors inline-flex items-center">
                   Leer más
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -106,7 +109,7 @@ export default function Blog() {
           className="text-center"
         >
           <Link 
-            href="#" 
+            href="/blog"
             className="inline-block bg-yellow-500 text-zinc-900 px-6 py-3 rounded-full font-medium hover:bg-yellow-400 transition-colors"
           >
             Ver todos los artículos

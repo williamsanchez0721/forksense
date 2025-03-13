@@ -5,12 +5,18 @@ import JoinWaitlistPopup from "@/components/JoinWaitlistPopup"
 import { useState } from 'react'
 // Importamos los iconos de Lucide React
 import { LineChart, ClipboardCheck, Shield } from 'lucide-react'
+import ContactForm from '@/components/ContactForm'
 
 export default function Hero() {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const handleOpenPopup = () => {
     setIsPopupOpen(true)
+  }
+
+  const closeModal = () => {
+    setShowModal(false)
   }
 
   return (
@@ -106,6 +112,7 @@ export default function Hero() {
               <button
                 className="w-full sm:w-auto bg-white text-zinc-900 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full font-medium hover:bg-yellow-400 transition-colors transform hover:scale-105 active:scale-95 text-sm sm:text-base"
                 aria-label="Más información sobre ForkU"
+                onClick={() => setShowModal(true)}
               >
                 MÁS INFORMACIÓN
               </button>
@@ -189,6 +196,7 @@ export default function Hero() {
       </div>
 
       <JoinWaitlistPopup isOpen={isPopupOpen} setIsOpen={setIsPopupOpen} />
+      <ContactForm isOpen={showModal} onClose={closeModal} />
     </section>
   )
 }

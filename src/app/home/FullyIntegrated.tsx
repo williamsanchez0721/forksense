@@ -86,13 +86,6 @@ export default function FullyIntegrated() {
               >
                 EXPLORAR LA APLICACIÓN
               </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-5 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full text-white font-medium border border-yellow-500/30 hover:bg-yellow-500/10 transition-colors text-xs sm:text-sm md:text-base"
-              >
-                VER CARACTERÍSTICAS
-              </motion.button>
             </div>
           </motion.div>
         </div>

@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-export default function NavLink() {
+interface NavLinkProps {
+    onLinkClick?: () => void;
+}
+
+export default function NavLink({ onLinkClick }: NavLinkProps) {
     const containerVariants = {
         initial: { opacity: 0 },
         animate: {
@@ -26,6 +30,12 @@ export default function NavLink() {
         }
     }
 
+    const handleClick = () => {
+        if (onLinkClick) {
+            onLinkClick();
+        }
+    };
+
     return (
         <motion.nav 
             className="flex flex-col gap-10 text-white text-4xl lg:text-6xl font-bold"
@@ -35,11 +45,12 @@ export default function NavLink() {
         >
             <motion.div variants={itemVariants}>
                 <Link 
-                    href="#" 
+                    href="/" 
                     className="hover:text-yellow-400 transition-colors duration-300 transform hover:translate-x-2 text-start relative group title-font"
+                    onClick={handleClick}
                 >
                     <span className="relative">
-                        CARACTERÍSTICAS
+                        INICIO
                         <motion.span 
                             className="absolute -bottom-2 left-0 w-0 h-1 bg-yellow-400 group-hover:w-full transition-all duration-300"
                             initial={{ width: 0 }}
@@ -51,43 +62,12 @@ export default function NavLink() {
 
             <motion.div variants={itemVariants}>
                 <Link 
-                    href="#" 
+                    href="#blog" 
                     className="hover:text-yellow-400 transition-colors duration-300 transform hover:translate-x-2 text-start relative group title-font"
-                >
-                    <span className="relative">
-                        APLICACIÓN
-                        <motion.span 
-                            className="absolute -bottom-2 left-0 w-0 h-1 bg-yellow-400 group-hover:w-full transition-all duration-300"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                        />
-                    </span>
-                </Link>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-                <Link 
-                    href="#" 
-                    className="hover:text-yellow-400 transition-colors duration-300 transform hover:translate-x-2 text-start relative group title-font"
+                    onClick={handleClick}
                 >
                     <span className="relative">
                         BLOG
-                        <motion.span 
-                            className="absolute -bottom-2 left-0 w-0 h-1 bg-yellow-400 group-hover:w-full transition-all duration-300"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                        />
-                    </span>
-                </Link>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-                <Link 
-                    href="#" 
-                    className="hover:text-yellow-400 transition-colors duration-300 transform hover:translate-x-2 text-start relative group title-font"
-                >
-                    <span className="relative">
-                        SOPORTE AL CLIENTE
                         <motion.span 
                             className="absolute -bottom-2 left-0 w-0 h-1 bg-yellow-400 group-hover:w-full transition-all duration-300"
                             initial={{ width: 0 }}

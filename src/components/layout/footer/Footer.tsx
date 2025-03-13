@@ -130,28 +130,10 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Download App Section */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-20 flex flex-col md:flex-row justify-between items-center"
-        >
-          <div className="flex items-center space-x-4">
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-yellow-500 text-zinc-900 px-6 py-3 rounded-full font-medium hover:bg-yellow-400 transition-colors"
-            >
-              DESCARGAR APP FORKU
-            </motion.button>
-          </div>
-        </motion.div>
-
         {/* Copyright and Credits */}
         <div className="mt-20 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>© 2025 ForkU. Todos los derechos reservados.</p>
+            <p>© 2025 Forksense. Todos los derechos reservados.</p>
             <p className="flex items-center gap-2">
               Diseñado y Desarrollado por{" "}
               <Link 

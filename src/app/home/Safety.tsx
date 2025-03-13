@@ -153,14 +153,6 @@ export default function Safety() {
                             >
                                 ÚNETE A LA LISTA DE ESPERA
                             </motion.button>
-
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="px-8 py-3 rounded-full text-white font-medium border border-yellow-500/30 hover:bg-yellow-500/10 transition-colors"
-                            >
-                                COMENZAR (Próximamente)
-                            </motion.button>
                         </div>
                     </motion.div>
                 </div>
