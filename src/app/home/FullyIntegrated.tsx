@@ -70,7 +70,7 @@ export default function FullyIntegrated() {
             className="text-white flex flex-wrap items-center justify-between"
           >
             <div className='flex flex-col gap-4 sm:gap-5 md:gap-6 max-w-2xl text-left'>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight title-font">
+              <h2 className="text-3xl uppercase sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight title-font">
                 Seguridad de Montacargas <span className="text-yellow-500">Simplificada</span>
               </h2>
               <p className="text-sm sm:text-base md:text-lg xl:text-xl text-gray-300 leading-relaxed">
