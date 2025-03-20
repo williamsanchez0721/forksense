@@ -37,7 +37,7 @@ export default function Footer() {
               </Link>
             </div>
             <p className="text-gray-400 text-sm">
-              Líderes en capacitación de seguridad para montacargas y cumplimiento de normativas.
+            Líderes en eficiencia y seguridad de montacargas
             </p>
           </motion.div>
 

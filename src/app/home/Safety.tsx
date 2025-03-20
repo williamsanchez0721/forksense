@@ -44,8 +44,8 @@ export default function Safety() {
                                 transition={{ duration: 0.5 }}
                                 className="text-4xl sm:text-5xl font-bold text-white"
                             >
-                                TÚ <span className="relative inline-block">
-                                    <span className="relative z-10">CONDUCES</span>
+                                PERMÍTENOS <span className="relative inline-block">
+                                    <span className="relative z-10">MANEJAR</span>
                                     <motion.span 
                                         initial={{ width: 0 }}
                                         whileInView={{ width: '100%' }}
@@ -60,7 +60,7 @@ export default function Safety() {
                                 transition={{ duration: 0.5, delay: 0.2 }}
                                 className="text-4xl sm:text-5xl font-bold text-yellow-500 mt-1"
                             >
-                                SEGURIDAD
+                                CONTIGO
                             </motion.h2>
                             <motion.div 
                                 initial={{ width: 0 }}

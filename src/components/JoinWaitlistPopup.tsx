@@ -108,22 +108,22 @@ export default function JoinWaitlistPopup({ isOpen, setIsOpen }: JoinWaitlistPop
 
           <form ref={formRef} className="space-y-4 sm:space-y-5" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
             <p className="text-gray-300 text-sm sm:text-base">
-              Únete a la lista de espera y obtén acceso anticipado a forkU, la plataforma definitiva para capacitación de montacargas conforme a OSHA.
+            ¡Únete a la lista de espera y obtén acceso anticipado a ForkU, la plataforma definitiva para garantizar la seguridad, eficiencia y cumplimiento normativo.
             </p>
 
             <div className="bg-zinc-800/50 p-3 rounded-xl border border-yellow-500/10">
               <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
                 <li className="flex items-start gap-2">
                   <span className="text-yellow-500 mt-0.5">✅</span> 
-                  <span>Mantente en Cumplimiento con OSHA</span>
+                  <span>Mantente informado en todo momento</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-yellow-500 mt-0.5">✅</span> 
-                  <span>Acceso Anticipado Exclusivo</span>
+                  <span>Monitorea el cumplimiento de actividades</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-yellow-500 mt-0.5">✅</span> 
-                  <span>Herramientas de Seguridad Diseñadas para Ti</span>
+                  <span>Cuida a tu equipo y a tu flotilla</span>
                 </li>
               </ul>
             </div>

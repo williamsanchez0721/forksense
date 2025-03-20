@@ -48,7 +48,7 @@ export default function Referral() {
                     <span className="text-yellow-500 text-xl mt-0.5">✓</span>
                     <div>
                       <span className="text-white font-medium">Por cada negocio que refieras:</span>
-                      <p className="text-gray-300">Gana $XX de crédito por cliente referido.</p>
+                      <p className="text-gray-300">Recibirás beneficios exclusivos en tu suscripción.</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
@@ -84,39 +84,6 @@ export default function Referral() {
             <p className="text-white">
               <span className="font-medium">¿Preguntas sobre el programa?</span> Contáctanos en <a href="mailto:referrals@forku.com" className="text-yellow-500 hover:text-yellow-400 transition-colors">referrals@forku.com</a>
             </p>
-          </div>
-        </motion.div>
-        
-        {/* How It Works */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 max-w-3xl mx-auto"
-        >
-          <h3 className="text-xl font-bold text-white mb-6 text-center">Cómo Funciona</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-zinc-800/20 rounded-xl p-5 text-center border border-yellow-500/10">
-              <div className="w-12 h-12 bg-yellow-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-yellow-500 font-bold text-xl">1</span>
-              </div>
-              <h4 className="text-white font-medium mb-2">Invita</h4>
-              <p className="text-gray-300 text-sm">Comparte tu código único con tus contactos de la industria</p>
-            </div>
-            <div className="bg-zinc-800/20 rounded-xl p-5 text-center border border-yellow-500/10">
-              <div className="w-12 h-12 bg-yellow-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-yellow-500 font-bold text-xl">2</span>
-              </div>
-              <h4 className="text-white font-medium mb-2">Ellos se unen</h4>
-              <p className="text-gray-300 text-sm">Cuando tus referidos se registran usando tu código</p>
-            </div>
-            <div className="bg-zinc-800/20 rounded-xl p-5 text-center border border-yellow-500/10">
-              <div className="w-12 h-12 bg-yellow-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-yellow-500 font-bold text-xl">3</span>
-              </div>
-              <h4 className="text-white font-medium mb-2">Tú ganas</h4>
-              <p className="text-gray-300 text-sm">Recibe créditos y descuentos automáticamente en tu cuenta</p>
-            </div>
           </div>
         </motion.div>
       </div>

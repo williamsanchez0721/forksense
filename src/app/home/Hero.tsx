@@ -46,8 +46,8 @@ export default function Hero() {
               <span className="inline sm:hidden">LA PLATAFORMA PARA SEGURIDAD DE MONTACARGAS</span>
               <span className="hidden sm:inline">
                 LA PLATAFORMA <br className="hidden sm:block" />
-                <span className="text-white">HECHA PARA LA</span> <br className="hidden sm:block" />
-                <span className="text-yellow-500">SEGURIDAD DE MONTACARGAS</span>
+                <span className="text-white">DESARROLLADA PARA</span> <br className="hidden sm:block" />
+                <span className="text-yellow-500">OPERADORES DE MONTACARGAS</span>
               </span>
             </motion.h1>
             
@@ -66,7 +66,7 @@ export default function Hero() {
                 <div className="bg-yellow-500/20 p-2.5 rounded-lg">
                   <LineChart className="text-yellow-500 w-6 h-6" strokeWidth={2} />
                 </div>
-                <span className="font-medium text-base sm:text-lg">Rastrea</span>
+                <span className="font-medium text-base sm:text-lg">Monitorea</span>
               </motion.div>
               
               <motion.div 

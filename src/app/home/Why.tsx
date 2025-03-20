@@ -56,7 +56,7 @@ export default function Why() {
                         </div>
                         
                         <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4">
-                          Empoderar a pequeñas y medianas empresas proporcionando una solución asequible, eficiente y conforme para la gestión de montacargas, conductores y operaciones.
+                        Empoderar a los operadores y a las MiPyMes proporcionando una solución diseñada para su día a día, fácil de usar, eficiente y poderosa que mejore la seguridad, el crecimiento y el cumplimiento normativo de nuestra flota.
                         </p>
                       </div>
                     </div>
@@ -72,13 +72,13 @@ export default function Why() {
                             </svg>
                           </div>
                           <div>
-                            <h3 className="text-xl font-bold text-white">Nuestra Visión</h3>
+                            <h3 className="text-xl font-bold text-white">Propuesta de Valor</h3>
                             <div className="h-1 w-12 bg-yellow-500/50 mt-1"></div>
                           </div>
                         </div>
                         
                         <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-4">
-                          Ser la plataforma líder en gestión de flotas de montacargas en México, ayudando a las empresas a reducir riesgos, mejorar la productividad y garantizar el cumplimiento normativo.
+                        Simplificamos la administración de flotillas de montacargas reduciendo el trabajo manual, estableciendo estándares de cumplimiento normativo, mejorando la comunicación entre los operadores y el negocio y promoviendo la mejora contínua con una solución integral al alcance de todos los presupuestos.  
                         </p>
                       </div>
                     </div>

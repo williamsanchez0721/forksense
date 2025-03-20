@@ -55,7 +55,8 @@ export default function Security() {
                 </div>
                 
                 <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
-                  Creemos en crear un lugar de trabajo más seguro, por eso nos enfocamos en TI, el operador. Nuestra plataforma está dedicada a promover las mejores prácticas, reducir accidentes y asegurar que TÚ estés bien preparado para regresar a casa con seguridad todos los días.
+                ForkU fué diseñado pensando en el operador y su familia. Estamos convencidos de que al cuidarlos, cuidamos también al negocio y a la comunidad. Por eso, cada interacción con nuestra app está basada en experiencia real y escucha activa de las necesidades evolutivas de nuestros usuarios y en apoyo al desarrollo de la industria.
+
                 </p>
 
                 {/* Sección ¿CÓMO? */}
@@ -66,29 +67,29 @@ export default function Security() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white">¿CÓMO?</h3>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white">¿CÓMO TE CUIDA FORKU?</h3>
                   </div>
                   
                   <ul className="space-y-3 pl-2">
                     <li className="flex items-center gap-3">
                       <span className="text-yellow-500 font-bold">✓</span>
-                      <span className="text-gray-300">Identifícate como operador</span>
+                      <span className="text-gray-300">Simplifica el seguimiento de operadores</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <span className="text-yellow-500 font-bold">✓</span>
-                      <span className="text-gray-300">Realiza verificaciones previas de vehículos conforme a OSHA</span>
+                      <span className="text-gray-300">Documenta revisiones pre turno fácil</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <span className="text-yellow-500 font-bold">✓</span>
-                      <span className="text-gray-300">Crea y revisa informes de incidentes</span>
+                      <span className="text-gray-300">Reporta incidencias</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <span className="text-yellow-500 font-bold">✓</span>
-                      <span className="text-gray-300">Haz seguimiento de tu progreso</span>
+                      <span className="text-gray-300">Mejora la de vida activa del montacargas</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <span className="text-yellow-500 font-bold">✓</span>
-                      <span className="text-gray-300">Mantén tus certificaciones actualizadas</span>
+                      <span className="text-gray-300">Asegura el cumplimiento normativo</span>
                     </li>
                   </ul>
                 </div>
