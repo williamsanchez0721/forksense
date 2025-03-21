@@ -89,8 +89,8 @@ export default function Safety() {
                                 >
                                     <span className="text-yellow-500 mr-2 text-lg">✓</span>
                                     <div>
-                                        <span className="font-semibold text-white text-sm sm:text-base">Precios Accesibles</span>
-                                        <span className="text-zinc-300 text-sm sm:text-base"> – Planes de suscripción flexibles que se adaptan a tu presupuesto.</span>
+                                        <span className="font-semibold text-white text-sm sm:text-base">MANEJA SEGURO</span>
+                                        <span className="text-zinc-300 text-sm sm:text-base"> - Realiza tus chequeos previos.</span>
                                     </div>
                                 </motion.li>
                                 <motion.li 
@@ -101,8 +101,9 @@ export default function Safety() {
                                 >
                                     <span className="text-yellow-500 mr-2 text-lg">✓</span>
                                     <div>
-                                        <span className="font-semibold text-white text-sm sm:text-base">Cumplimiento Simplificado</span>
-                                        <span className="text-zinc-300 text-sm sm:text-base"> – Asegura el cumplimiento con OSHA sin complicaciones.</span>
+                                        <span className="font-semibold text-white text-sm sm:text-base">MANEJA EFICIENTEMENTE</span>
+                                        <span className="text-zinc-300 text-sm sm:text-base"> - Registra tus logros y conoce tus objetivos.
+                                        </span>
                                     </div>
                                 </motion.li>
                                 <motion.li 
@@ -113,8 +114,8 @@ export default function Safety() {
                                 >
                                     <span className="text-yellow-500 mr-2 text-lg">✓</span>
                                     <div>
-                                        <span className="font-semibold text-white text-sm sm:text-base">Interfaz Amigable</span>
-                                        <span className="text-zinc-300 text-sm sm:text-base"> – No se necesita experiencia técnica, solo herramientas simples y efectivas.</span>
+                                        <span className="font-semibold text-white text-sm sm:text-base">MANEJA TU MONTACARGAS</span>
+                                        <span className="text-zinc-300 text-sm sm:text-base"> - Documenta tus incidencias.</span>
                                     </div>
                                 </motion.li>
                                 <motion.li 
@@ -125,8 +126,8 @@ export default function Safety() {
                                 >
                                     <span className="text-yellow-500 mr-2 text-lg">✓</span>
                                     <div>
-                                        <span className="font-semibold text-white text-sm sm:text-base">Seguridad de Conductores y Flota</span>
-                                        <span className="text-zinc-300 text-sm sm:text-base"> – Mantén un seguimiento del mantenimiento de montacargas, rendimiento de conductores y objetivos de seguridad.</span>
+                                        <span className="font-semibold text-white text-sm sm:text-base">MANEJA CON FORKU</span>
+                                        <span className="text-zinc-300 text-sm sm:text-base"> - Pensado para ti, construido para tu seguridad.</span>
                                     </div>
                                 </motion.li>
                                 <motion.li 
@@ -138,7 +139,7 @@ export default function Safety() {
                                     <span className="text-yellow-500 mr-2 text-lg">✓</span>
                                     <div>
                                         <span className="font-semibold text-white text-sm sm:text-base">Comunicación Eficiente</span>
-                                        <span className="text-zinc-300 text-sm sm:text-base"> – Conecta administradores y conductores con nuestro sistema de mensajería integrado.</span>
+                                        <span className="text-zinc-300 text-sm sm:text-base"> - Conecta administradores y conductores con nuestro sistema de mensajería integrado.</span>
                                     </div>
                                 </motion.li>
                             </ul>
