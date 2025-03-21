@@ -19,11 +19,12 @@ export default function Footer() {
       <div className="container mx-auto px-6 relative z-10 py-20">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Logo and Company Info */}
+          <div className='flex flex-col gap-4'>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="space-y-2"
           >
             <div className="flex justify-center items-center gap-2 bg-white rounded-full p-2 w-14 h-14">
               <Link href="/">
@@ -40,7 +41,30 @@ export default function Footer() {
             Líderes en eficiencia y seguridad de montacargas
             </p>
           </motion.div>
-
+          {/* Logo and Company Info */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="space-y-2"
+          >
+            <div className="flex justify-center items-center gap-2 bg-white rounded-full p-2 w-14 h-14">
+              <Link href="/">
+                <Image
+                  src="/logos/forkulogoublack.png"
+                  alt="ForkU Logo"
+                  width={150}
+                  height={50}
+                  className="w-full"
+                />
+              </Link>
+            </div>
+            <p className="text-gray-400 text-sm">
+            Safety driven. U focused.
+            </p>
+          </motion.div>
+          </div>
+          
           {/* Navigation Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -55,17 +79,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/how-it-works" className="hover:text-yellow-400 transition-colors">
+                <Link href="/#faqs" className="hover:text-yellow-400 transition-colors">
                   CÓMO FUNCIONA
                 </Link>
               </li>
               <li>
-                <Link href="/training" className="hover:text-yellow-400 transition-colors">
-                  CAPACITACIÓN
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="hover:text-yellow-400 transition-colors">
+                <Link href="/#blog" className="hover:text-yellow-400 transition-colors">
                   BLOG
                 </Link>
               </li>
@@ -81,22 +100,7 @@ export default function Footer() {
             <h3 className="text-sm font-mono mb-6 text-yellow-500">SOPORTE</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/support" className="hover:text-yellow-400 transition-colors">
-                  ATENCIÓN AL CLIENTE
-                </Link>
-              </li>
-              <li>
-                <Link href="/orders" className="hover:text-yellow-400 transition-colors">
-                  TUS PEDIDOS
-                </Link>
-              </li>
-              <li>
-                <Link href="/releases" className="hover:text-yellow-400 transition-colors">
-                  NOTAS DE VERSIÓN
-                </Link>
-              </li>
-              <li>
-                <Link href="/referral" className="hover:text-yellow-400 transition-colors">
+                <Link href="/#referral" className="hover:text-yellow-400 transition-colors">
                   PROGRAMA DE REFERIDOS
                 </Link>
               </li>
@@ -112,18 +116,8 @@ export default function Footer() {
             <h3 className="text-sm font-mono mb-6 text-yellow-500">CONÉCTATE</h3>
             <ul className="space-y-4">
               <li>
-                <Link href="https://www.instagram.com/forku.app/" className="hover:text-yellow-400 transition-colors">
-                  INSTAGRAM
-                </Link>
-              </li>
-              <li>
-                <Link href="https://www.tiktok.com/@forku.app" className="hover:text-yellow-400 transition-colors">
-                  X
-                </Link>
-              </li>
-              <li>
-                <Link href="mailto:contacto@forku.com" className="hover:text-yellow-400 transition-colors">
-                  CONTACTO
+                <Link href="https://www.linkedin.com/company/forksense/" target='_blank' className="hover:text-yellow-400 transition-colors">
+                LINKEDIN
                 </Link>
               </li>
             </ul>
@@ -134,16 +128,6 @@ export default function Footer() {
         <div className="mt-20 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
             <p>© 2025 Forksense. Todos los derechos reservados.</p>
-            <p className="flex items-center gap-2">
-              Diseñado y Desarrollado por{" "}
-              <Link 
-                href="https://github.com/williamsanchez0721" 
-                target="_blank" 
-                className="text-yellow-500 hover:text-yellow-400 transition-colors"
-              >
-                William Lopez
-              </Link>
-            </p>
           </div>
         </div>
       </div>

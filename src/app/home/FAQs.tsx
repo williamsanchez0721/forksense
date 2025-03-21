@@ -11,59 +11,26 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   // Preguntas Generales
   {
-    question: "¿Cómo funciona la plataforma ForkU?",
-    answer: "Nuestra plataforma permite a los administradores de montacargas realizar seguimiento de su flota, asegurar el cumplimiento normativo y comunicarse con los conductores, todo en un solo lugar.",
-    category: "Preguntas Generales"
-  },
-  {
-    question: "¿Para quién está diseñada esta plataforma?",
-    answer: "Estamos diseñados para pequeñas y medianas empresas que poseen 7 o menos montacargas.",
-    category: "Preguntas Generales"
-  },
-  {
     question: "¿Qué es ForkU?",
-    answer: "La plataforma todo en uno para propietarios de flotas de montacargas y conductores. Mejora el seguimiento de inventario, asegura el cumplimiento de OSHA, certifica la capacitación y mejora la comunicación del equipo con una solución simple pero potente y asequible.",
+    answer: "Es una plataforma móvil diseñada para acompañar al operador de montacargas en su día a día, contiene procesos de autenticación de operador y montacargas, monitoreo de operación, registro de incidentes y mucho más.",
     category: "Preguntas Generales"
   },
   {
-    question: "¿Por qué es importante la capacitación en seguridad de montacargas?",
-    answer: "La capacitación en seguridad de montacargas es crucial para prevenir accidentes laborales, garantizar el cumplimiento de OSHA y proteger tanto a los operadores como al personal del lugar de trabajo. Una formación adecuada reduce accidentes, aumenta la eficiencia y crea un entorno de trabajo más seguro para todos.",
+    question: "¿Por qué es nuestra prioridad la seguridad?",
+    answer: "Estamos convencidos de que cuidar la seguridad de nuestros operadores es cuidar al negocio mismo y a la comunidad, lo cuál nos lleva a la eficiencia operativa y el crecimiento de la industria.",
     category: "Preguntas Generales"
   },
   {
-    question: "¿Cómo ayuda ForkU con el cumplimiento de OSHA?",
-    answer: "ForkU proporciona materiales de capacitación completos alineados con los requisitos de OSHA, realiza seguimiento del progreso de certificación y mantiene registros digitales de la capacitación completada. Nuestra plataforma garantiza que cumplas con todas las regulaciones necesarias y mantiene tu documentación actualizada.",
+    question: "¿Cómo nos ayuda ForkU al cumplimiento normativo?",
+    answer: "Nuestra aplicación mantiene el registro de las operaciones, los chequeos previos, registro de incidentes, certificaciones de nuestros operadores y más. Todo en tiempo real y accesible desde cualquier lugar.",
     category: "Preguntas Generales"
   },
   {
-    question: "¿Cómo accedo a los materiales de capacitación?",
-    answer: "Los materiales de capacitación están disponibles 24/7 a través de nuestra plataforma en línea segura. Una vez registrado, puedes acceder a todo el contenido desde cualquier dispositivo, incluyendo módulos interactivos, tutoriales en video y pruebas de práctica.",
+    question: "¿Cómo puedo tener ForkU en mis manos?",
+    answer: "Pensando en ti estamos en un proceso de escucha activa al mercado, puedes inscribirte en la lista de espera y ser parte de nuestra comunidad. Adicional podrás ser uno de los primeros en descubrir como ForkU mejorará tu día a día desde el primer instante.",
     category: "Preguntas Generales"
-  },
-  
-  // Precios y Planes
-  {
-    question: "¿Cuánto cuesta?",
-    answer: "Nuestros precios comienzan en $5 por conductor/mes y $10 por administrador/mes.",
-    category: "Precios y Planes"
-  },
-  {
-    question: "¿Hay una prueba gratuita?",
-    answer: "¡Sí! Regístrate para una prueba gratuita de 14 días, sin necesidad de tarjeta de crédito.",
-    category: "Precios y Planes"
-  },
-  
-  // Soporte Técnico
-  {
-    question: "¿Mis datos están seguros?",
-    answer: "Sí, utilizamos almacenamiento en la nube encriptado para mantener tus datos seguros.",
-    category: "Soporte Técnico"
-  },
-  {
-    question: "¿Ofrecen soporte al cliente?",
-    answer: "¡Absolutamente! Nuestro equipo de soporte está disponible a través de chat y correo electrónico 24/7.",
-    category: "Soporte Técnico"
   }
+  
 ]
 
 export default function FAQs() {
@@ -74,7 +41,7 @@ export default function FAQs() {
   const filteredItems = faqItems.filter(item => item.category === activeCategory)
 
   return (
-    <section className="relative bg-zinc-900 py-16 sm:py-20 md:py-24 overflow-hidden">
+    <section id='faqs' className="relative bg-zinc-900 py-16 sm:py-20 md:py-24 overflow-hidden">
       {/* Background Abstract */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-yellow-500/20 to-transparent rounded-full blur-[120px]" />

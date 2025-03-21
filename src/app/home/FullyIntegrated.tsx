@@ -71,10 +71,13 @@ export default function FullyIntegrated() {
           >
             <div className='flex flex-col gap-4 sm:gap-5 md:gap-6 max-w-2xl text-left'>
               <h2 className="text-3xl uppercase sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight title-font">
-                Seguridad de Montacargas <span className="text-yellow-500">Simplificada</span>
+              LA SEGURIDAD PRIMERO EN TU MONTACARGAS
               </h2>
               <p className="text-sm sm:text-base md:text-lg xl:text-xl text-gray-300 leading-relaxed">
-                La aplicación y recursos de ForkU están desarrollados pensando en Ti. Nuestra plataforma integral simplifica las regulaciones OSHA, ofrece materiales completos de capacitación, realiza seguimiento de certificaciones y mantiene actualizados los protocolos de seguridad para tu flota.
+              ForkU ha sido diseñada pensando en ti, el operador. Garantiza el cumplimiento de los protocolos de seguridad y normatividad mientras ForkU se encarga de documentar tu operación y tenerla disponible en todo momento.
+              </p>
+              <p className="text-sm text-gray-300 leading-relaxed">
+              Administración eficiente. Tranquilidad de operación.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-8 justify-end">

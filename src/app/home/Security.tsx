@@ -28,7 +28,7 @@ export default function Security() {
           {/* Left Column - Image (Full Height) */}
           <div className="relative h-[50vh] lg:h-auto lg:min-h-screen order-2 lg:order-1">
             <Image
-              src="/security2.png"
+              src="/family.jpg"
               alt="Operador de montacargas usando la app ForkU"
               fill
               className="object-cover object-center"

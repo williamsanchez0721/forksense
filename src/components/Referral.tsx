@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function Referral() {
   return (
-    <section className="relative bg-zinc-900 py-16 sm:py-20 overflow-hidden">
+    <section id='referral' className="relative bg-zinc-900 py-16 sm:py-20 overflow-hidden">
       {/* Background Abstract */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/2 w-[100%] h-[100%] bg-gradient-to-b from-yellow-500/20 to-transparent rounded-full blur-[120px]" />
