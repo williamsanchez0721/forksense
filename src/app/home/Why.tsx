@@ -91,7 +91,7 @@ export default function Why() {
           {/* Right Column - Image (Full Height) */}
           <div className="relative h-[50vh] lg:h-auto lg:min-h-screen order-1 lg:order-2">
             <Image
-              src="/family.jpg"
+              src="/security2.png"
               alt="Equipo de ForkU"
               fill
               className="object-cover object-center"

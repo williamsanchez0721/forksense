@@ -98,7 +98,7 @@ export default function Hero() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              La solución todo en uno para flotas de montacargas que mejora el seguimiento, garantiza el cumplimiento de normas OSHA y optimiza la comunicación.
+              La solución en mano para la operación y monitoreo de flotillas de montacargas, diseñada pensando en operadores y administradores para garantizar la seguridad, eficiencia y cumplimiento normativo.
             </motion.p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-5 sm:mt-6">

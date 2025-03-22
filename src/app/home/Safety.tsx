@@ -136,11 +136,6 @@ export default function Safety() {
                                     transition={{ duration: 0.3, delay: 0.5 }}
                                     className="flex items-start"
                                 >
-                                    <span className="text-yellow-500 mr-2 text-lg">✓</span>
-                                    <div>
-                                        <span className="font-semibold text-white text-sm sm:text-base">Comunicación Eficiente</span>
-                                        <span className="text-zinc-300 text-sm sm:text-base"> - Conecta administradores y conductores con nuestro sistema de mensajería integrado.</span>
-                                    </div>
                                 </motion.li>
                             </ul>
                         </div>

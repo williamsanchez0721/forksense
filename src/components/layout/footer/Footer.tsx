@@ -51,7 +51,7 @@ export default function Footer() {
             <div className="flex justify-center items-center gap-2 bg-white rounded-full p-2 w-14 h-14">
               <Link href="/">
                 <Image
-                  src="/logos/forkulogoublack.png"
+                  src="/logos/forkulogolong.png"
                   alt="ForkU Logo"
                   width={150}
                   height={50}
